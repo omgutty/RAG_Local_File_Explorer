@@ -1,0 +1,375 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "### The Full RAG Pipeline Detailed way\n\nUnderstanding the complete RAG pipeline is essential. \n\nHere is the step-by-step flow from document to answer:\n\n### Phase 1: Indexing (Offline / One-Time/ Continues) | Ingestion\n- **Step 1 – Load:** Document loaders read PDFs, DOCX, HTML, CSVs, databases, APIs, etc.\n- **Step 2 – Transform:** Clean text, remove headers/footers, normalize formatting.\n- **Step 3 – Chunk:** Split documents into chunks using a chosen strategy.\n- **Step 4 – Embed:** Convert each chunk to a vector using an embedding model.\n- **Step 5 – Store:** Save vectors + text + metadata in a vector database.\n\n\n### Phase 2: Retrieval + Generation (Online / Per Query)\n- **Step 6 – Query Embed:** User's question is converted to a vector using the SAME embedding model.\n- **Step 7 – Search:** Vector database performs similarity search, returns **top-K chunks.**\n- **Step 8 – Augment:** Retrieved chunks are injected into the LLM prompt as context.\n- **Step 9 – Generate:** LLM generates a response grounded in the retrieved context.\n- **Step 10 – (Optional) Cite:** System references which source documents the answer came from.\n⚠️ **Critical Rule:** The embedding model used for indexing MUST be the same model used for querying. \n\nIf you embed documents with \"nomic-embed-text\" but query with \"text-embedding-3-small\", the vectors live in different mathematical spaces and similarity search will return garbage.\n\n",
+        "height": 144,
+        "width": 336
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1424,
+        -704
+      ],
+      "typeVersion": 1,
+      "id": "51e6fd26-c662-4103-96c8-adc267755b63",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Objective ##\n**Objective **\nBuild a basic RAG which can ingest a text or PDF. It will ingest into a database by using an embedding model, and I will be also able to retrieve it by using a chat option, okay.",
+        "height": 224,
+        "width": 480
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1424,
+        -528
+      ],
+      "typeVersion": 1,
+      "id": "c4bedd2f-4894-40d4-8365-e3eec4dbbd67",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Phase 1 -  ingestion \n",
+        "height": 480,
+        "width": 896,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -880,
+        -688
+      ],
+      "typeVersion": 1,
+      "id": "3668b18c-e733-4d82-8d59-80aa15d83d70",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "formTitle": "Upload Documents for RAG",
+        "formDescription": "upload one or more PDF, CSV, or JSON files to add to knowledge base. ",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Upload Files",
+              "fieldType": "file",
+              "fieldName": "files",
+              "acceptFileTypes": ".pdf, .csv, .json, .docx, .txt, .html"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        -752,
+        -528
+      ],
+      "id": "d1d402ef-49e5-434a-a406-837c13c0cf03",
+      "name": "On form submission",
+      "webhookId": "24a1c9aa-49c3-40d6-9ece-e26d3f214f3c"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "ragn8n-1536",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        -528,
+        -624
+      ],
+      "id": "73cd09c3-24f0-4df0-ab77-52c9a711a895",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "QG5M699F7kb6PTLy",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -64,
+        192
+      ],
+      "id": "1868c467-a400-4899-a222-b325b74cc791",
+      "name": "Embeddings OpenA- small",
+      "credentials": {
+        "openAiApi": {
+          "id": "7E7ZfCuFIWcTFs5J",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "textSplittingMode": "custom",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "filename"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -336,
+        -464
+      ],
+      "id": "41eda541-1198-4db1-b1bb-962cbfffa654",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -304
+      ],
+      "id": "9eeaf52e-afe2-439e-9798-9bca5c00bfa5",
+      "name": "Token Splitter"
+    },
+    {
+      "parameters": {
+        "content": "## Phase 2 -  RAG Fetching\n",
+        "height": 480,
+        "width": 896,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -880,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "2466273e-196f-42a9-b9aa-82c90c2e0968",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -784,
+        -32
+      ],
+      "id": "50ee6f43-bc82-4055-92fc-cbdefe4513bc",
+      "name": "When chat message received",
+      "webhookId": "c8c74414-806d-4888-82d2-dd3d70a6d3c3"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": ""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -544,
+        -112
+      ],
+      "id": "ecc0cd92-a9dc-4b2b-bda2-5af9a6d73ee4",
+      "name": "RAG Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -608,
+        112
+      ],
+      "id": "2d8f8d2c-ed81-43ad-aa97-0e1020a46711",
+      "name": "Brain GPT mini",
+      "credentials": {
+        "openAiApi": {
+          "id": "7E7ZfCuFIWcTFs5J",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        -464,
+        144
+      ],
+      "id": "270ffdf1-7171-40c8-ad8e-3c692e5224bf",
+      "name": "Model chat memory"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "search the uploaded document knowledge base to find the relevant information for answering user questions ",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "ragn8n-1536",
+          "mode": "list",
+          "cachedResultName": "ragn8n-1536"
+        },
+        "topK": 3,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        -288,
+        64
+      ],
+      "id": "a343744d-b923-4f80-8e0c-2d9c063ffedc",
+      "name": "Pinecone Vector Store1",
+      "credentials": {
+        "pineconeApi": {
+          "id": "QG5M699F7kb6PTLy",
+          "name": "Pinecone account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenA- small": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brain GPT mini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model chat memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "15af12be-04b7-4fd2-8419-690916d4a9d7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3910f584af049d9927c32121c2a18f474aecc7a26de87c81e70ac902cdc37642"
+  },
+  "nodeGroups": [],
+  "id": "qsAVuSq6t7XZhYiM",
+  "tags": []
+}

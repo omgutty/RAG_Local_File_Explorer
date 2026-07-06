@@ -1,0 +1,390 @@
+{
+  "name": "RAG_Mistral",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "### The Full RAG Pipeline Detailed way\n\nUnderstanding the complete RAG pipeline is essential. \n\nHere is the step-by-step flow from document to answer:\n\n### Phase 1: Indexing (Offline / One-Time/ Continues) | Ingestion\n- **Step 1 – Load:** Document loaders read PDFs, DOCX, HTML, CSVs, databases, APIs, etc.\n- **Step 2 – Transform:** Clean text, remove headers/footers, normalize formatting.\n- **Step 3 – Chunk:** Split documents into chunks using a chosen strategy.\n- **Step 4 – Embed:** Convert each chunk to a vector using an embedding model.\n- **Step 5 – Store:** Save vectors + text + metadata in a vector database.\n\n\n### Phase 2: Retrieval + Generation (Online / Per Query)\n- **Step 6 – Query Embed:** User's question is converted to a vector using the SAME embedding model.\n- **Step 7 – Search:** Vector database performs similarity search, returns **top-K chunks.**\n- **Step 8 – Augment:** Retrieved chunks are injected into the LLM prompt as context.\n- **Step 9 – Generate:** LLM generates a response grounded in the retrieved context.\n- **Step 10 – (Optional) Cite:** System references which source documents the answer came from.\n⚠️ **Critical Rule:** The embedding model used for indexing MUST be the same model used for querying. \n\nIf you embed documents with \"nomic-embed-text\" but query with \"text-embedding-3-small\", the vectors live in different mathematical spaces and similarity search will return garbage.\n\n",
+        "height": 144,
+        "width": 336
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -128,
+        -208
+      ],
+      "typeVersion": 1,
+      "id": "42703de0-f898-4bf7-bd67-621ebc862afe",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Objective ##\n**Objective **\nBuild a basic RAG which can ingest a text or PDF. It will ingest into a database by using an embedding model, and I will be also able to retrieve it by using a chat option, okay.",
+        "height": 224,
+        "width": 480
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -128,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "d414dd9f-3d7b-4af2-b868-28cacf521e3d",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Phase 1 -  ingestion \n",
+        "height": 480,
+        "width": 896,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        416,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "cdb99588-184f-495e-9b46-e881db3cb063",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "formTitle": "Upload Documents for RAG",
+        "formDescription": "upload one or more PDF, CSV, or JSON files to add to knowledge base. ",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Upload Files",
+              "fieldType": "file",
+              "fieldName": "files",
+              "acceptFileTypes": ".pdf, .csv, .json, .docx, .txt, .html"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        544,
+        -32
+      ],
+      "id": "b3a3cdd6-fd6d-4e07-8fcf-3d33feeba2d9",
+      "name": "On form submission",
+      "webhookId": "00be3e14-d27b-4d4a-8d84-6e09e8c49503"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "rag-mistral",
+          "mode": "list",
+          "cachedResultName": "rag-mistral"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        768,
+        -128
+      ],
+      "id": "a8c1e9ea-fca8-4752-acb3-7c3644343c7b",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "QG5M699F7kb6PTLy",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "textSplittingMode": "custom",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "filename"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        960,
+        32
+      ],
+      "id": "687b1459-08d6-48fc-87ef-bbdc6eec25c9",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        976,
+        192
+      ],
+      "id": "d3d57a32-a620-4028-8686-5291c300487b",
+      "name": "Token Splitter"
+    },
+    {
+      "parameters": {
+        "content": "## Phase 2 -  RAG Fetching\n",
+        "height": 480,
+        "width": 896,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        416,
+        320
+      ],
+      "typeVersion": 1,
+      "id": "b38d430a-c7e5-4e78-befd-aa7ecf19a43a",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        512,
+        464
+      ],
+      "id": "d4500460-9bff-4801-816e-bad807c65c34",
+      "name": "When chat message received",
+      "webhookId": "c8c74414-806d-4888-82d2-dd3d70a6d3c3"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": ""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        752,
+        384
+      ],
+      "id": "56c41e4f-c45a-4033-8af3-89de15257340",
+      "name": "RAG Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        688,
+        608
+      ],
+      "id": "5c85f0eb-a614-452c-a0db-c1990970f580",
+      "name": "Brain GPT mini",
+      "credentials": {
+        "openAiApi": {
+          "id": "7E7ZfCuFIWcTFs5J",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        832,
+        640
+      ],
+      "id": "24b9d32b-aa65-485a-8e29-666b1c9a7cbd",
+      "name": "Model chat memory"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "search the uploaded document knowledge base to find the relevant information for answering user questions ",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "rag-mistral",
+          "mode": "list",
+          "cachedResultName": "rag-mistral"
+        },
+        "topK": 3,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        1008,
+        560
+      ],
+      "id": "ba16062e-d3dc-42ca-a0b0-99a71bc0a327",
+      "name": "Pinecone Vector Store1",
+      "credentials": {
+        "pineconeApi": {
+          "id": "QG5M699F7kb6PTLy",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        464,
+        208
+      ],
+      "id": "0385b682-6e24-49ab-ac89-e85b21e45985",
+      "name": "Embeddings Mistral Cloud",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "hx40266Bii9dvwD9",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "##Mistrail 1024",
+        "height": 80,
+        "width": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        704,
+        144
+      ],
+      "typeVersion": 1,
+      "id": "5c44e1d1-a81b-4b22-8784-36a28125de87",
+      "name": "Sticky Note4"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brain GPT mini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model chat memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Mistral Cloud": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "63cf5854-68f5-4841-910f-8c17551d603f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3910f584af049d9927c32121c2a18f474aecc7a26de87c81e70ac902cdc37642"
+  },
+  "nodeGroups": [],
+  "id": "rGFw2XrCEWNtwutu",
+  "tags": []
+}
