@@ -1,0 +1,16 @@
+.venv
+.vercel
+.vscode
+__pycache__
+*.pyc
+*.pyo
+.env
+langflow.env
+chroma_db
+src/rag_explorer/.env
+*.log
+.git
+.gitignore
+RAG-QA-TestCase-Pipeline
+requirements*.txt
+*.md

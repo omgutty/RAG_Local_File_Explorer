@@ -1,0 +1,9 @@
+{
+  "buildCommand": null,
+  "outputDirectory": "src/rag_explorer/ui",
+  "installCommand": null,
+  "framework": null,
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
