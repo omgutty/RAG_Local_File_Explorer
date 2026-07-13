@@ -1,0 +1,206 @@
+AI Project Template (Reusable for Every Chapter)
+
+I recommend creating one master folder outside your course chapters.
+
+Example:
+
+D:\Templates\AI_Project_Template
+
+Whenever you start a new chapter, simply copy it.
+
+Folder Structure
+AI_Project_Template/
+│
+├── .venv/
+│
+├── .vscode/
+│   └── settings.json
+│
+├── src/
+│
+├── flows/
+│
+├── data/
+│   ├── input/
+│   └── output/
+│
+├── docs/
+│
+├── screenshots/
+│
+├── notebooks/
+│
+├── logs/
+│
+├── tests/
+│
+├── prompts/
+│
+├── exports/
+│
+├── assets/
+│
+├── .env.example
+│
+├── .gitignore
+│
+├── requirements.txt
+│
+├── README.md
+│
+├── LICENSE
+│
+└── CHANGELOG.md
+Purpose of Each Folder
+Folder	Purpose
+.venv	Python virtual environment
+.vscode	VS Code project settings
+src	Python source code
+flows	Langflow exported JSON workflows
+data/input	PDFs, CSV, Excel, JSON files used by workflows
+data/output	Generated files and results
+docs	Learning notes and architecture documentation
+screenshots	Images used in documentation
+notebooks	Jupyter notebooks for experimentation
+logs	Application logs
+tests	Test scripts
+prompts	Prompt engineering examples
+exports	Exported models and generated files
+assets	Images, icons and diagrams
+.gitignore
+# Virtual Environment
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+
+# Langflow Database
+langflow.db
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Generated Files
+dist/
+build/
+
+# Python Packaging
+*.egg-info/
+.env.example
+OPENAI_API_KEY=
+
+OPENROUTER_API_KEY=
+
+ANTHROPIC_API_KEY=
+
+GOOGLE_API_KEY=
+
+GITHUB_TOKEN=
+
+LANGSMITH_API_KEY=
+VS Code Settings
+
+.vscode/settings.json
+
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "files.exclude": {
+        "**/__pycache__": true
+    }
+}
+Initial Setup Checklist
+☐ Clone or Copy Project
+
+☐ Create Virtual Environment
+
+uv venv --python 3.12 .venv
+
+☐ Activate Environment
+
+.\.venv\Scripts\Activate.ps1
+
+☐ Install Packages
+
+python -m pip install -r requirements.txt
+
+☐ Verify Python Version
+
+python --version
+
+☐ Verify Installed Packages
+
+python -m pip list
+
+☐ Start Project
+
+python -m langflow run
+Daily Workflow Checklist
+☐ Open VS Code
+
+☐ Open Project Folder
+
+☐ Activate Virtual Environment
+
+.\.venv\Scripts\Activate.ps1
+
+☐ Verify Python Version
+
+python --version
+
+☐ Start Application
+
+python -m langflow run
+
+☐ Develop
+
+☐ Export Flows
+
+☐ Update requirements.txt
+
+python -m pip freeze > requirements.txt
+
+☐ Commit Changes
+
+☐ Push to GitHub
+One suggestion that will help you long-term
+
+Since we've been working together on Playwright, MCP, Langflow, Git, AI agents, and interview preparation, I think it's worth creating a single GitHub repository called something like:
+
+AI-Engineering-Blueprint
+
+Inside that repository, each chapter becomes its own folder:
+
+AI-Engineering-Blueprint/
+│
+├── chapter_01/
+├── chapter_02/
+├── chapter_03/
+...
+├── chapter_08_Langflow/
+├── chapter_09_MCP/
+├── chapter_10_Agents/
+└── project_template/
+
+This gives you:
+
+A complete learning history in one place.
+Consistent structure across all chapters.
+Easier navigation and documentation.
+A portfolio you can share with recruiters or colleagues to demonstrate your AI engineering journey.
