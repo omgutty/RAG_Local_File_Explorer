@@ -1,0 +1,10 @@
+# Replace qabuddy.example.com with your (internal) domain, or use :80 for IP-only.
+# Generate the bcrypt hash with:  docker run --rm caddy caddy hash-password --plaintext 'yourpass'
+qabuddy.example.com {
+    basic_auth {
+        qa JDJhJDE0JHJlcGxhY2UtbWUtd2l0aC1yZWFsLWhhc2g
+    }
+    reverse_proxy app:5080 {
+        flush_interval -1
+    }
+}

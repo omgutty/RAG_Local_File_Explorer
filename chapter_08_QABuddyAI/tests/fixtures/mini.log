@@ -1,0 +1,9 @@
+Building selenium-framework 1.4.0 build #99
+[INFO] Running com.atb.tests.LoginTest
+[ERROR] com.atb.tests.LoginTest.testInvalidPassword -- Time elapsed: 9.1 s <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: #error-toast
+	at com.atb.pages.LoginPage.getErrorToast(LoginPage.java:54)
+	at com.atb.tests.LoginTest.testInvalidPassword(LoginTest.java:41)
+[INFO] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0
+[INFO] BUILD FAILURE
+Finished: FAILURE

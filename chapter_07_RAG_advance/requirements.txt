@@ -1,0 +1,22 @@
+# ── Web ──
+flask>=3.0,<4.0
+flask-cors>=4.0,<5.0
+
+# ── Data ──
+pandas>=2.0,<3.0
+openpyxl>=3.1,<4.0
+
+# ── Vector DB ──
+qdrant-client>=1.9,<2.0
+
+# ── Embedding & Reranker (BAAI FlagEmbedding) ──
+FlagEmbedding>=1.3,<2.0
+
+# ── LLM API ──
+openai>=1.0,<2.0
+
+# ── Env ──
+python-dotenv>=1.0,<2.0
+
+# ── ML backend (torch is a peer dep of FlagEmbedding) ──
+torch>=2.0,<3.0

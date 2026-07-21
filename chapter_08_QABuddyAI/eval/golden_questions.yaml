@@ -1,0 +1,30 @@
+# Retrieval eval: scripts/eval.py checks the top-6 chunks for each question.
+# expect.source_type: any of these source types must appear in the top hits
+# expect.contains: this substring must appear in a top hit's text/ref (optional)
+questions:
+  - q: "How do we initialize the WebDriver in the Selenium framework?"
+    expect: {source_type: [selenium_framework]}
+  - q: "Which page object handles login in the Selenium framework?"
+    expect: {source_type: [selenium_framework], contains: "ogin"}
+  - q: "How does the Playwright framework structure its tests?"
+    expect: {source_type: [playwright_framework]}
+  - q: "Which test cases cover the Funnels module?"
+    expect: {source_type: [test_cases]}
+  - q: "What is test case VWO-1002 about?"
+    expect: {source_type: [test_cases], contains: "VWO-1002"}
+  - q: "What is JIRA VWO-2002 about?"
+    expect: {source_type: [jira_tickets], contains: "VWO-2002"}
+  - q: "Why is the checkout coupon test flaky?"
+    expect: {source_type: [jira_tickets, meeting_notes, lucid_charts]}
+  - q: "What failed in Jenkins build 128?"
+    expect: {source_type: [jenkins_logs], contains: "128"}
+  - q: "Which exception did LoginTest.testInvalidPassword throw in the nightly build?"
+    expect: {source_type: [jenkins_logs], contains: "NoSuchElementException"}
+  - q: "What is our flaky test quarantine policy?"
+    expect: {source_type: [company_docs, meeting_notes]}
+  - q: "What does the PRD say about A/B testing goals?"
+    expect: {source_type: [prd_docs]}
+  - q: "What happens after the OTP modal in the checkout flow?"
+    expect: {source_type: [lucid_charts]}
+  - q: "What were the action items from sprint 42 planning?"
+    expect: {source_type: [meeting_notes]}

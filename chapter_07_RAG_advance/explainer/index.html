@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced RAG Explorer — The Vibe-Coded RAG System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   Advanced RAG Explorer — Explainer Page
+   Self-contained, no external deps beyond fonts
+   ═══════════════════════════════════════════ */
+:root {
+  --cream: #F5EDE0; --cream-light: #FBF6EF; --cream-dark: #E8DDCE;
+  --coral: #E8695A; --coral-hover: #D45545; --coral-light: #FDE8E5; --coral-soft: #FFF0ED;
+  --text-primary: #2D2B27; --text-secondary: #6B625A; --text-muted: #9A9188;
+  --border: #E0D6C8; --border-light: #EDE4D8; --success: #4CAF50;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --radius: 16px; --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-sans);background:var(--cream);color:var(--text-primary);line-height:1.7;overflow-x:hidden}
+
+/* ── Hero ── */
+.hero{text-align:center;padding:80px 20px 60px;background:linear-gradient(180deg,var(--cream-light),var(--cream));position:relative;overflow:hidden}
+.hero-bg-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg-shapes span{position:absolute;border-radius:50%;background:var(--coral-light);opacity:0.4;animation:floatShape 8s ease-in-out infinite}
+.hero-bg-shapes span:nth-child(1){width:300px;height:300px;top:-80px;right:-60px;animation-delay:0s}
+.hero-bg-shapes span:nth-child(2){width:200px;height:200px;bottom:-40px;left:-40px;animation-delay:2s}
+.hero-bg-shapes span:nth-child(3){width:150px;height:150px;top:40%;left:20%;animation-delay:4s}
+@keyframes floatShape{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.05)}}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:var(--text-primary);margin-bottom:12px;position:relative}
+.hero h1 .highlight{color:var(--coral)}
+.hero .subtitle{font-size:1.1rem;color:var(--text-secondary);max-width:640px;margin:0 auto 24px;position:relative}
+.hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;position:relative}
+.hero-badge{padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:500;background:var(--coral-soft);color:var(--coral);border:1px solid var(--coral-light)}
+
+/* ── Nav ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(245,237,224,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 20px}
+nav ul{display:flex;gap:2px;list-style:none;max-width:900px;margin:0 auto;overflow-x:auto}
+nav a{display:block;padding:14px 18px;font-size:0.85rem;font-weight:500;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:all 200ms}
+nav a:hover,nav a.active{color:var(--coral);border-bottom-color:var(--coral)}
+
+/* ── Sections ── */
+.section{max-width:900px;margin:0 auto;padding:60px 24px}
+.section-header{margin-bottom:32px}
+.section-header h2{font-size:1.8rem;font-weight:700;margin-bottom:8px}
+.section-header h2 .step-num{display:inline-block;width:36px;height:36px;background:var(--coral);color:#fff;border-radius:50%;text-align:center;line-height:36px;font-size:1rem;margin-right:10px}
+.section-header p{color:var(--text-secondary);font-size:1rem}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;margin-bottom:24px;box-shadow:var(--shadow);transition:box-shadow 300ms}
+.card:hover{box-shadow:var(--shadow-lg)}
+.card h3{font-size:1.15rem;font-weight:600;margin-bottom:12px}
+.card h4{font-size:0.95rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;margin-top:16px}
+.card p,.card li{font-size:0.95rem;color:var(--text-secondary);line-height:1.7}
+.card ul,.card ol{padding-left:20px;margin:8px 0}
+.card code{font-family:var(--font-mono);font-size:0.85rem;background:var(--cream-light);padding:2px 6px;border-radius:4px;color:var(--coral)}
+.card pre{background:var(--cream-light);padding:14px 18px;border-radius:var(--radius-sm);overflow-x:auto;font-family:var(--font-mono);font-size:0.83rem;line-height:1.6;margin:10px 0;border:1px solid var(--border-light)}
+.tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.78rem;font-weight:500;margin:2px}
+.tag-coral{background:var(--coral-soft);color:var(--coral)}
+.tag-green{background:#E8F5E9;color:#2E7D32}
+.tag-blue{background:#E3F2FD;color:#1565C0}
+.tag-purple{background:#F3E5F5;color:#7B1FA2}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:12px 0}
+.stat{text-align:center;padding:14px 8px;background:var(--cream-light);border-radius:var(--radius-sm);border:1px solid var(--border-light)}
+.stat-value{font-size:1.2rem;font-weight:700;color:var(--text-primary)}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:2px}
+
+/* ── Architecture Diagram ── */
+.diagram-container{text-align:center;padding:20px 0;overflow-x:auto}
+.arch-svg{max-width:100%;height:auto}
+
+/* ── Pipeline Flow (CSS animated) ── */
+.flow-container{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:20px 0}
+.flow-node{background:#fff;border:2px solid var(--border);border-radius:var(--radius-sm);padding:12px 18px;font-size:0.82rem;font-weight:500;text-align:center;min-width:70px;position:relative;transition:all 300ms;z-index:2}
+.flow-node:hover{transform:translateY(-3px);border-color:var(--coral);box-shadow:0 4px 12px rgba(232,105,90,0.2)}
+.flow-node .node-icon{font-size:1.4rem;display:block;margin-bottom:4px}
+.flow-arrow{font-size:1.2rem;color:var(--text-muted);padding:0 6px;position:relative}
+.flow-arrow.pulsing{animation:arrowPulse 1.5s infinite}
+@keyframes arrowPulse{0%,100%{opacity:0.5;transform:translateX(0)}50%{opacity:1;transform:translateX(3px)}}
+
+/* ── Pipeline animation (moving dots) ── */
+.pipeline-visual{position:relative;padding:32px 0;overflow:hidden}
+.pipeline-track{position:relative;height:6px;background:var(--cream-dark);border-radius:3px;margin:40px 0}
+.pipeline-dot{position:absolute;width:14px;height:14px;background:var(--coral);border-radius:50%;top:-4px;animation:marchAlong 6s linear infinite}
+.pipeline-dot:nth-child(2){animation-delay:1.5s;background:var(--success)}
+.pipeline-dot:nth-child(3){animation-delay:3s;background:#FF9800}
+@keyframes marchAlong{0%{left:-20px}100%{left:calc(100% + 20px)}}
+
+/* ── Step markers on pipeline ── */
+.pipeline-stops{display:flex;justify-content:space-between;position:relative;margin-top:-20px}
+.pipeline-stop{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:0.72rem;color:var(--text-muted);font-weight:500}
+.pipeline-stop-dot{width:12px;height:12px;background:var(--coral);border-radius:50%;border:3px solid var(--cream);position:relative;z-index:2}
+
+/* ── RRF Visual ── */
+.rrf-visual{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:20px 0}
+.rrf-list{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;background:var(--cream-light)}
+.rrf-list h5{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:6px}
+.rrf-item{display:flex;justify-content:space-between;padding:4px 0;font-size:0.85rem;border-bottom:1px solid var(--border-light)}
+.rrf-item:last-child{border-bottom:none}
+.rrf-rank{font-weight:600;color:var(--text-primary)}
+.rrf-score{color:var(--text-muted);font-size:0.8rem}
+.rrf-merged{background:var(--coral-soft);border-color:var(--coral-light)}
+
+/* ── Tabs ── */
+.tabs{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.tab-btn{padding:8px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);background:#fff;font-size:0.85rem;cursor:pointer;transition:all 200ms;color:var(--text-secondary);font-weight:500}
+.tab-btn:hover{border-color:var(--coral);color:var(--coral)}
+.tab-btn.active{background:var(--coral);color:#fff;border-color:var(--coral)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ── Code comparison ── */
+.code-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0}
+@media(max-width:600px){.code-compare{grid-template-columns:1fr}}
+.code-compare pre{font-size:0.78rem;margin:0}
+
+/* ── Stats bar ── */
+.stats-bar{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;padding:16px 0}
+.stat-item{text-align:center}
+.stat-item .num{font-size:2rem;font-weight:800;color:var(--coral)}
+.stat-item .label{font-size:0.82rem;color:var(--text-muted)}
+
+/* ── Footer ── */
+footer{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:0.85rem;border-top:1px solid var(--border);margin-top:40px}
+footer a{color:var(--coral)}
+
+/* ── Responsive ── */
+@media(max-width:700px){.section{padding:40px 16px}.card{padding:20px}.hero{padding:50px 16px 40px}}
+</style>
+</head>
+<body>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div class="hero-bg-shapes"><span></span><span></span><span></span></div>
+  <div class="hero-badges"><span class="hero-badge">✨ Vibe-Coded</span><span class="hero-badge">🧠 RAG</span><span class="hero-badge">📊 5,000 Test Cases</span></div>
+  <h1>Advanced <span class="highlight">RAG Explorer</span></h1>
+  <p class="subtitle">An end-to-end teaching demo for The Testing Academy — built entirely through vibe coding. From raw CSV to grounded Q&A with hybrid retrieval, re-ranking, and AI generation.</p>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="num">5,000</div><div class="label">VWO Test Cases</div></div>
+    <div class="stat-item"><div class="num">bge-m3</div><div class="label">Dense + Sparse</div></div>
+    <div class="stat-item"><div class="num">Qdrant</div><div class="label">Vector Database</div></div>
+    <div class="stat-item"><div class="num">DeepSeek</div><div class="label">Answer Generation</div></div>
+  </div>
+</section>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#pipeline">Pipeline</a></li>
+    <li><a href="#embedding">Embedding</a></li>
+    <li><a href="#retrieval">Hybrid Retrieval</a></li>
+    <li><a href="#reranking">Re-ranking</a></li>
+    <li><a href="#generation">Generation</a></li>
+    <li><a href="#ui">UI</a></li>
+    <li><a href="#tech">Tech Stack</a></li>
+  </ul>
+</nav>
+
+<!-- ════ OVERVIEW ════ -->
+<section id="overview" class="section">
+  <div class="section-header">
+    <h2><span class="step-num">1</span> What We Built</h2>
+    <p>A complete Retrieval-Augmented Generation system that ingests 5,000 VWO A/B test cases and lets you ask questions or generate new test cases using hybrid search + AI.</p>
+  </div>
+
+  <div class="card">
+    <h3>🎯 The Challenge</h3>
+    <p>QA teams at scale need fast access to thousands of test cases. Traditional search (keyword match) fails because:</p>
+    <ul>
+      <li>Same concept expressed differently ("checkout flow" vs "purchase funnel")</li>
+      <li>Misspellings and abbreviations ("signup" vs "registration")</li>
+      <li>No semantic understanding — "P0 checkout bugs" doesn't match "critical payment failures"</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>💡 The Solution: RAG</h3>
+    <p><strong>Retrieval-Augmented Generation</strong> solves this by combining two powers:</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-value">🔍 Retrieval</div><div class="stat-label">Find relevant test cases semantically</div></div>
+      <div class="stat"><div class="stat-value">🧠 Generation</div><div class="stat-label">Answer in natural language with citations</div></div>
+    </div>
+    <p>Our system uses a 5-stage pipeline that processes every query through: rewriting → embedding → hybrid search → re-ranking → generation.</p>
+  </div>
+
+  <div class="card">
+    <h3>🗄️ The Data: 5,000 VWO Test Cases</h3>
+    <p>We generated 5,000 realistic VWO A/B testing scenarios covering 20 modules:</p>
+    <div class="flex-wrap" style="display:flex;gap:4px;flex-wrap:wrap;margin:8px 0">
+      <span class="tag tag-coral">Landing Page</span>
+      <span class="tag tag-blue">Pricing Page</span>
+      <span class="tag tag-green">Checkout Flow</span>
+      <span class="tag tag-purple">Signup Flow</span>
+      <span class="tag tag-coral">Navigation</span>
+      <span class="tag tag-blue">Homepage Hero</span>
+      <span class="tag tag-green">Product Page</span>
+      <span class="tag tag-purple">Blog Layout</span>
+      <span class="tag tag-coral">Search Results</span>
+      <span class="tag tag-blue">Cart Page</span>
+      <span class="tag tag-green">Payment Modal</span>
+      <span class="tag tag-purple">Onboarding</span>
+      <span class="tag tag-coral">Email Capture</span>
+      <span class="tag tag-blue">Mobile Menu</span>
+      <span class="tag tag-green">Referral Program</span>
+      <span class="tag tag-purple">Live Chat</span>
+    </div>
+    <p>Each test case includes: <code>jira_id</code>, <code>title</code>, <code>description</code>, <code>steps</code>, <code>expected</code>, <code>priority</code> (P0–P3), <code>module</code>, and <code>tags</code>.</p>
+  </div>
+</section>
+
+<!-- ════ PIPELINE ════ -->
+<section id="pipeline" class="section">
+  <div class="section-header">
+    <h2><span class="step-num">2</span> The Pipeline</h2>
+    <p>Two main pipelines: <strong>Ingest</strong> (CSV → Qdrant) and <strong>Chat</strong> (Question → Answer).</p>
+  </div>
+
+  <div class="card">
+    <h3>📥 Ingest Pipeline</h3>
+    <p>Converts raw CSV rows into vector-indexed chunks in Qdrant:</p>
+
+    <div class="flow-container">
+      <div class="flow-node"><span class="node-icon">📖</span> Read CSV</div>
+      <span class="flow-arrow pulsing">→</span>
+      <div class="flow-node"><span class="node-icon">📝</span> Build Docs</div>
+      <span class="flow-arrow pulsing">→</span>
+      <div class="flow-node"><span class="node-icon">✂️</span> Chunk</div>
+      <span class="flow-arrow pulsing">→</span>
+      <div class="flow-node"><span class="node-icon">🧠</span> Embed</div>
+      <span class="flow-arrow pulsing">→</span>
+      <div class="flow-node"><span class="node-icon">🗄️</span> Index</div>
+    </div>
+
+    <div class="pipeline-visual">
+      <div class="pipeline-track">
+        <div class="pipeline-dot"></div>
+        <div class="pipeline-dot"></div>
+        <div class="pipeline-dot"></div>
+      </div>
+      <div class="pipeline-stops">
+        <div class="pipeline-stop"><div class="pipeline-stop-dot"></div>CSV</div>
+        <div class="pipeline-stop"><div class="pipeline-stop-dot"></div>Docs</div>
+        <div class="pipeline-stop"><div class="pipeline-stop-dot"></div>Chunks</div>
+        <div class="pipeline-stop"><div class="pipeline-stop-dot"></div>Vectors</div>
+        <div class="pipeline-stop"><div class="pipeline-stop-dot"></div>Qdrant</div>
+      </div>
+    </div>
+
+    <h4>Key detail: Chunking with overlap</h4>
+    <p>Each document is split into 1000-character chunks with 150 characters of overlap. This ensures context isn't lost at chunk boundaries — the overlapping text is highlighted in <span style="color:var(--coral)">coral</span> in the UI.</p>
+    <pre>CHUNK_SIZE = 1000     # Max chars per chunk
+CHUNK_OVERLAP = 150   # Overlap between adjacent chunks</pre>
+  </div>
+
+  <div class="card">
+    <h3>💬 Chat Pipeline</h3>
+    <p>Every user question triggers a 5-stage pipeline:</p>
+
+    <div class="flow-container">
+      <div class="flow-node"><span class="node-icon">🔄</span> Rewrite</div>
+      <span class="flow-arrow pulsing">→</span>
+      <div class="flow-node"><span class="node-icon">🧠</span> Embed</div>
+      <span class="flow-arrow pulsing">→</span>
+      <div class="flow-node"><span class="node-icon">🔍</span> Hybrid Search</div>
+      <span class="flow-arrow pulsing">→</span>
+      <div class="flow-node"><span class="node-icon">📊</span> Re-rank</div>
+      <span class="flow-arrow pulsing">→</span>
+      <div class="flow-node"><span class="node-icon">✨</span> Generate</div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-value">4</div><div class="stat-label">Query Variants</div></div>
+      <div class="stat"><div class="stat-value">20</div><div class="stat-label">Candidates Each</div></div>
+      <div class="stat"><div class="stat-value">RRF</div><div class="stat-label">Fusion Method</div></div>
+      <div class="stat"><div class="stat-value">4</div><div class="stat-label">Final Chunks to LLM</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ EMBEDDING ════ -->
+<section id="embedding" class="section">
+  <div class="section-header">
+    <h2><span class="step-num">3</span> Embedding: bge-m3</h2>
+    <p>One model, two types of vectors — the magic of BAAI's bge-m3.</p>
+  </div>
+
+  <div class="card">
+    <h3>🧠 What is an Embedding?</h3>
+    <p>An embedding converts text into a list of numbers (a vector) that captures its <em>meaning</em>. Similar texts have similar vectors. "Checkout flow" and "purchase funnel" end up close together in vector space, even though they share no keywords.</p>
+
+    <h4>Dense Vectors (1024 dimensions)</h4>
+    <p>Every word contributes to a single, dense list of floating-point numbers. Captures overall <em>semantic meaning</em>. Example output:</p>
+    <pre>[0.023, -0.145, 0.567, 0.001, -0.234, 0.789, -0.012, 0.345, ...]  (1024 values)</pre>
+
+    <h4>Sparse Vectors (Lexical Weights)</h4>
+    <p>Only important tokens get non-zero weights — like TF-IDF but learned. Captures <em>keyword precision</em>. Example output:</p>
+    <pre>{101: 0.45, 2057: 0.32, 89: 0.28, 3401: 0.21, 15: 0.18}  # token_id: weight</pre>
+
+    <div class="code-compare">
+      <div>
+        <h4>Dense — Semantic</h4>
+        <pre># "test checkout flow"
+→ [0.023, -0.145, ...]
+# "test purchase funnel"
+→ [0.025, -0.140, ...]  ← Close!</pre>
+      </div>
+      <div>
+        <h4>Sparse — Keyword</h4>
+        <pre># "test checkout flow"
+→ {"checkout": 0.5, "test": 0.3, "flow": 0.2}
+# "test purchase funnel"
+→ {"test": 0.3, "purchase": 0.4, "funnel": 0.3}</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>⚡ bge-m3: Best of Both Worlds</h3>
+    <p><strong>bge-m3</strong> produces both dense and sparse vectors from a <em>single forward pass</em> through the model. This means we get semantic + keyword understanding with the same compute cost as a normal model.</p>
+    <pre># In Python:
+model = BGEM3FlagModel("BAAI/bge-m3")
+output = model.encode(["test checkout flow"],
+                       return_dense=True,
+                       return_sparse=True)
+dense_vec = output["dense_vecs"]       # 1024-dim
+sparse_vec = output["lexical_weights"]  # {token: weight}</pre>
+    <p>The model is ~2.3 GB in FP16 and runs on CPU or GPU. We load it once as a singleton — the first query warms it up, subsequent calls are fast.</p>
+  </div>
+</section>
+
+<!-- ════ HYBRID RETRIEVAL ════ -->
+<section id="retrieval" class="section">
+  <div class="section-header">
+    <h2><span class="step-num">4</span> Hybrid Retrieval + RRF Fusion</h2>
+    <p>The key innovation: combining dense and sparse search results.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔍 The Problem</h3>
+    <p><strong>Dense search</strong> finds semantically similar results but can miss exact keyword matches. <strong>Sparse search</strong> is great at keyword matching but misses conceptually related content. Neither alone is perfect.</p>
+
+    <h3>🤝 The Solution: Hybrid Search</h3>
+    <p>We run <strong>both</strong> searches and merge results using <strong>Reciprocal Rank Fusion (RRF)</strong>.</p>
+
+    <pre>def rrf_fuse(dense_results, sparse_results, k=60):
+    """Reciprocal Rank Fusion — merge two ranked lists."""
+    scores = {}
+    for rank, point in enumerate(dense_results):
+        scores[point.id] += 1 / (k + rank + 1)
+    for rank, point in enumerate(sparse_results):
+        scores[point.id] += 1 / (k + rank + 1)
+    # Sort by fused score descending
+    return sorted(scores, key=scores.get, reverse=True)</pre>
+
+    <h4>How RRF Works (Visual)</h4>
+    <div class="rrf-visual">
+      <div class="rrf-list">
+        <h5>Dense Results</h5>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #1</span><span class="rrf-score">score: 0.85</span></div>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #3</span><span class="rrf-score">score: 0.72</span></div>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #5</span><span class="rrf-score">score: 0.61</span></div>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #7</span><span class="rrf-score">score: 0.55</span></div>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #9</span><span class="rrf-score">score: 0.48</span></div>
+      </div>
+      <div style="font-size:1.4rem;color:var(--coral);font-weight:700;">RRF<br>→</div>
+      <div class="rrf-list rrf-merged">
+        <h5>Fused Results</h5>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #1</span><span class="rrf-score">RRF: 0.033</span></div>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #2</span><span class="rrf-score">RRF: 0.032</span></div>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #3</span><span class="rrf-score">RRF: 0.031</span></div>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #4</span><span class="rrf-score">RRF: 0.028</span></div>
+        <div class="rrf-item"><span class="rrf-rank">Chunk #5</span><span class="rrf-score">RRF: 0.025</span></div>
+      </div>
+    </div>
+
+    <p>The RRF formula gives each item a score of <code>1 / (k + rank)</code> from each ranked list, then sums them. Items that rank well in <em>both</em> lists get boosted. The constant <code>k=60</code> controls how much high ranks matter.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-value">20</div><div class="stat-label">TOP_N_HYBRID</div></div>
+      <div class="stat"><div class="stat-value">60</div><div class="stat-label">RRF_K</div></div>
+      <div class="stat"><div class="stat-value">4</div><div class="stat-label">Final Chunks</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🗄️ Qdrant — The Vector Database</h3>
+    <p>We use <strong>Qdrant</strong> as our vector store. It natively supports both dense and sparse vectors in the same collection — a rare feature that makes hybrid search seamless.</p>
+    <pre># Collection config
+client.create_collection(
+    "vwo_test_cases",
+    vectors_config=VectorParams(size=1024, distance="COSINE"),
+    sparse_vectors_config=SparseVectorParams(
+        index=SparseIndexParams(on_disk=True)
+    )
+)</pre>
+    <p>Qdrant runs <strong>embedded</strong> (no Docker needed) — data is stored in a local folder <code>./data/qdrant_data/</code> using RocksDB. Zero infrastructure required.</p>
+  </div>
+</section>
+
+<!-- ════ RE-RANKING ════ -->
+<section id="reranking" class="section">
+  <div class="section-header">
+    <h2><span class="step-num">5</span> Cross-Encoder Re-ranking</h2>
+    <p>Fine-tuning retrieval quality with BAAI/bge-reranker-v2-m3.</p>
+  </div>
+
+  <div class="card">
+    <h3>📊 What is Re-ranking?</h3>
+    <p>After hybrid retrieval gives us 20 candidate chunks, we need to pick the <strong>4 best</strong> ones to send to the LLM. A re-ranker is a <strong>cross-encoder</strong> — it looks at the query and each candidate <em>together</em> and scores their relevance:</p>
+
+    <pre># Cross-encoder: (query, candidate) → relevance score
+pairs = [
+    ["What checkout tests exist?", "Title: Test guest checkout flow..."],  # score: 0.92
+    ["What checkout tests exist?", "Title: Test pricing page layout..."],  # score: 0.31
+    ...
+]
+scores = reranker.compute_score(pairs, normalize=True)</pre>
+
+    <p>Unlike the bi-encoder (bge-m3) which embeds everything independently, the cross-encoder can use <strong>attention between query and candidate</strong> — much more accurate, but slower. That's why we only re-rank the top 20, not all 5,000.</p>
+
+    <div class="code-compare">
+      <div>
+        <h4>Before Re-ranking (RRF)</h4>
+        <pre>#1: Pricing layout test    0.85
+#2: Guest checkout test    0.72
+#3: Signup flow test       0.68
+#4: Checkout test          0.61
+#5: Payment modal test     0.55</pre>
+      </div>
+      <div>
+        <h4>After Re-ranking</h4>
+        <pre>#1: Guest checkout test    0.94
+#2: Checkout test          0.89
+#3: Payment modal test     0.82
+#4: Pricing layout test    0.31
+#5: Signup flow test       0.25</pre>
+      </div>
+    </div>
+
+    <p>Notice: the re-ranker correctly identified that "guest checkout" is most relevant to the query about checkout tests, boosting it from #2 to #1. The pricing test dropped from #1 to #4 because it's less relevant.</p>
+  </div>
+
+  <div class="card">
+    <h3>🧮 Models Used</h3>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-value">BAAI/bge-m3</div><div class="stat-label">Bi-encoder (embedding)</div></div>
+      <div class="stat"><div class="stat-value">2.3 GB</div><div class="stat-label">Model size (FP16)</div></div>
+      <div class="stat"><div class="stat-value">BAAI/bge-reranker-v2-m3</div><div class="stat-label">Cross-encoder</div></div>
+      <div class="stat"><div class="stat-value">570 MB</div><div class="stat-label">Model size (FP16)</div></div>
+    </div>
+    <p>Both models are loaded lazily as singletons — they appear on first request, not at app startup. This keeps the Flask app responsive.</p>
+  </div>
+</section>
+
+<!-- ════ GENERATION ════ -->
+<section id="generation" class="section">
+  <div class="section-header">
+    <h2><span class="step-num">6</span> LLM Generation with Openrouter</h2>
+    <p>Converting retrieved chunks into grounded answers or structured test cases.</p>
+  </div>
+
+  <div class="card">
+    <h3>🎯 Two Modes: Answer vs Generate</h3>
+    <p>The system auto-detects user intent:</p>
+
+    <div class="code-compare">
+      <div>
+        <h4>🔍 Answer Mode</h4>
+        <pre>"What checkout tests do we have?"
+
+→ "We have 12 checkout-related tests.
+   [Chunk 1]: Guest checkout vs account...
+   [Chunk 4]: Single-page vs multi-step..."
+
+
+Citations: [Chunk 1], [Chunk 4]</pre>
+      </div>
+      <div>
+        <h4>✍️ Generate Mode</h4>
+        <pre>"Create a test case for VWO-9999"
+
+→ **Title:** Test email capture popup timing
+**Preconditions:** Exit-intent detection...
+**Steps:**
+1. Load landing page...
+2. Move cursor toward address bar...
+**Expected:** Popup triggers after 3s
+**Priority:** P2
+**Tags:** Conversion, A/B Test</pre>
+      </div>
+    </div>
+
+    <p>Detection is keyword-based for speed: if the query contains <code>"create"</code>, <code>"generate"</code>, <code>"new test case"</code>, or <code>"jira"</code>, it routes to Generate mode.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔄 Query Rewriting</h3>
+    <p>Before searching, we use a cheap LLM (GPT-4o-mini via Openrouter) to generate 3 alternative phrasings of the user's query. This increases recall by covering different ways to express the same information need.</p>
+    <pre>User query: "checkout bugs"
+→ "checkout flow defects"
+→ "payment issues in checkout"
+→ "errors during purchase process"
+
+All 4 queries are embedded and searched — results merge via RRF.</pre>
+  </div>
+
+  <div class="card">
+    <h3>🤖 Models via Openrouter</h3>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-value">deepsearch/deepsearch-chat</div><div class="stat-label">Generation model</div></div>
+      <div class="stat"><div class="stat-value">openai/gpt-4o-mini</div><div class="stat-label">Query rewriting</div></div>
+      <div class="stat"><div class="stat-value">0.3</div><div class="stat-label">Temperature (factual)</div></div>
+      <div class="stat"><div class="stat-value">[Chunk N]</div><div class="stat-label">Citation format</div></div>
+    </div>
+    <p>We use Openrouter as the unified API provider. The generation model gets the re-ranked chunks as context, with strict instructions to cite sources. Temperature is low (0.3) for factual grounding.</p>
+  </div>
+</section>
+
+<!-- ════ UI ════ -->
+<section id="ui" class="section">
+  <div class="section-header">
+    <h2><span class="step-num">7</span> The User Interface</h2>
+    <p>Claude-inspired warm cream + coral theme with live pipeline tracking.</p>
+  </div>
+
+  <div class="card">
+    <h3>🎨 Design System</h3>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:12px 0">
+      <div style="width:60px;height:60px;border-radius:8px;background:#F5EDE0;border:2px solid var(--border);display:inline-flex;align-items:center;justify-content:center;flex-direction:column;font-size:0.6rem;font-weight:600;color:var(--text-secondary)">Cream<br>#F5EDE0</div>
+      <div style="width:60px;height:60px;border-radius:8px;background:#E8695A;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;font-size:0.6rem;font-weight:600;color:#fff">Coral<br>#E8695A</div>
+      <div style="width:60px;height:60px;border-radius:8px;background:#FDE8E5;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;font-size:0.6rem;font-weight:600;color:var(--text-secondary)">Light<br>#FDE8E5</div>
+      <div style="width:60px;height:60px;border-radius:8px;background:#2D2B27;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;font-size:0.6rem;font-weight:600;color:#fff">Text<br>#2D2B27</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📱 Four Main Pages</h3>
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" onclick="switchTab(this,'tab-upload')">📁 Upload</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-ingest')">⚙️ Ingest</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-chunks')">📄 Chunks</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-chat')">💬 Chat</button>
+    </div>
+
+    <div id="tab-upload" class="tab-panel active">
+      <h4>Upload & Preview</h4>
+      <p>Accepts CSV or Excel files. Shows row count, column types, first 5 rows. Lets you pick which columns are text (for embedding) vs metadata (for filtering).</p>
+    </div>
+    <div id="tab-ingest" class="tab-panel">
+      <h4>Live Pipeline Tracking (SSE)</h4>
+      <p>Server-Sent Events stream real-time updates as the pipeline runs. Each stage shows detail cards with histograms, vector previews, and progress bars. No page refreshes needed.</p>
+    </div>
+    <div id="tab-chunks" class="tab-panel">
+      <h4>Paginated Chunk Viewer</h4>
+      <p>Browse 50 chunks per page with substring search and filters by priority/module. Each chunk shows its text, metadata badges, dense vector preview, and sparse token weights.</p>
+    </div>
+    <div id="tab-chat" class="tab-panel">
+      <h4>Interactive Q&A</h4>
+      <p>Left pane shows live pipeline stage progress. Right pane is the chat. After each query, expandable sections show the rewrites, search comparison (dense vs sparse vs RRF), re-ranking before/after table, and the final answer with <code>[Chunk N]</code> citations.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>⚙️ Tunables (Top of app.py)</h3>
+    <table>
+      <tr><th>Knob</th><th>Default</th><th>Meaning</th></tr>
+      <tr><td><code>CHUNK_SIZE</code></td><td>1000</td><td>Max chars per chunk</td></tr>
+      <tr><td><code>CHUNK_OVERLAP</code></td><td>150</td><td>Overlap between chunks</td></tr>
+      <tr><td><code>TOP_N_HYBRID</code></td><td>20</td><td>Candidates per search</td></tr>
+      <tr><td><code>TOP_K_RERANK</code></td><td>4</td><td>Final chunks to LLM</td></tr>
+      <tr><td><code>RRF_K</code></td><td>60</td><td>RRF smoothing constant</td></tr>
+      <tr><td><code>REWRITE_ENABLED</code></td><td>True</td><td>Query rewriting on/off</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ════ TECH STACK ════ -->
+<section id="tech" class="section">
+  <div class="section-header">
+    <h2><span class="step-num">8</span> Full Tech Stack</h2>
+    <p>Everything used to build this system — all open-source or free-tier API.</p>
+  </div>
+
+  <div class="card">
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-value">🐍 Python 3.12</div><div class="stat-label">Language</div></div>
+      <div class="stat"><div class="stat-value">🌶️ Flask</div><div class="stat-label">Web Framework</div></div>
+      <div class="stat"><div class="stat-value">🧠 BAAI/bge-m3</div><div class="stat-label">Embedding Model</div></div>
+      <div class="stat"><div class="stat-value">📊 bge-reranker-v2-m3</div><div class="stat-label">Re-ranking</div></div>
+      <div class="stat"><div class="stat-value">🗄️ Qdrant</div><div class="stat-label">Vector Database</div></div>
+      <div class="stat"><div class="stat-value">🌐 Openrouter</div><div class="stat-label">LLM API</div></div>
+      <div class="stat"><div class="stat-value">🤖 DeepSeek</div><div class="stat-label">Generation Model</div></div>
+      <div class="stat"><div class="stat-value">📊 Pandas</div><div class="stat-label">Data Processing</div></div>
+      <div class="stat"><div class="stat-value">⚡ SSE</div><div class="stat-label">Real-time Streaming</div></div>
+      <div class="stat"><div class="stat-value">🎨 Inter + JetBrains Mono</div><div class="stat-label">Fonts</div></div>
+    </div>
+  </div>
+
+  <div class="card" style="text-align:center">
+    <h3>🚀 How to Run</h3>
+    <pre style="display:inline-block;text-align:left;">
+# 1. Set up environment
+python -m venv .venv
+.venv\Scripts\activate      # Windows
+source .venv/bin/activate    # Mac/Linux
+pip install -r requirements.txt
+
+# 2. Add your API key to .env
+OPENROUTER_API_KEY=sk-your-key
+
+# 3. Generate test cases (optional — pre-generated)
+python testcase/generate_test_cases.py
+
+# 4. Start the app
+python app.py
+# Open http://127.0.0.1:5050
+    </pre>
+    <p style="margin-top:12px;color:var(--text-secondary)">Upload the CSV at <code>/upload</code>, run ingestion, then start chatting!</p>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <p><strong>Advanced RAG Explorer</strong> — Built for The Testing Academy · <a href="https://github.com">GitHub</a></p>
+  <p style="margin-top:6px;font-size:0.8rem;">Vibe-coded with ❤️ using Flask, Qdrant, bge-m3, and DeepSeek · July 2026</p>
+  <p style="margin-top:6px;font-size:0.75rem;">5,000 VWO test cases · Hybrid dense+sparse retrieval · RRF fusion · Cross-encoder re-ranking · LLM generation</p>
+</footer>
+
+<script>
+/* ── Tab switching ── */
+function switchTab(btn, tabId) {
+  const container = btn.closest('.card');
+  container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+/* ── Smooth scroll for nav links ── */
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+    a.classList.add('active');
+  });
+});
+
+/* ── Highlight active nav on scroll ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-50% 0px -50% 0px' });
+document.querySelectorAll('.section[id]').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

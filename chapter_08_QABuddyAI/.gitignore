@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.env.secret_part
+qdrant_data/
+uploads/
+server.log
+backups/
+data/.ingest_manifest.json
+
+# data payloads stay private; structure + samples stay in git
+# (01/02 are full git clones, fetched by scripts/fetch_repos.sh)
+data/01_selenium_framework/
+data/02_playwright_framework/
+data/03_test_cases/*
+data/04_jira_tickets/*
+data/05_company_docs/*
+data/06_figma_designs/*
+data/07_meeting_notes/*
+data/08_lucid_charts/*
+data/09_prd_srs_brd_frd/*
+data/10_jenkins_logs/*
+!data/*/README.md
+!data/*/sample_*

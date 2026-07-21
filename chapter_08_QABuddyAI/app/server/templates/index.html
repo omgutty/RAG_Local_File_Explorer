@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QA Buddy — QA Knowledge System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>✳️</text></svg>">
+</head>
+<body>
+<div class="shell">
+
+  <aside class="rail">
+    <div class="brand">
+      <div class="brand-dot" id="health-dot" title="checking..."></div>
+      <div>
+        <div class="brand-name">QA Buddy</div>
+        <div class="brand-sub">qa knowledge system</div>
+      </div>
+    </div>
+
+    <section class="rail-block">
+      <h3>knowledge base</h3>
+      <ul class="kb-list" id="kb-list">
+        {% for s in sources %}{% if s.active %}
+        <li data-st="{{ s.source_type }}">
+          <label class="kb-row">
+            <input type="checkbox" class="src-filter" value="{{ s.source_type }}" checked>
+            <span class="kb-swatch st-{{ s.source_type }}"></span>
+            <span class="kb-label">{{ s.label }}</span>
+            <span class="kb-count" id="count-{{ s.source_type }}">–</span>
+          </label>
+        </li>
+        {% endif %}{% endfor %}
+      </ul>
+      <div class="kb-total">total chunks <b id="kb-total">–</b></div>
+      <div class="kb-actions">
+        <button class="ghost" id="btn-all">all</button>
+        <button class="ghost" id="btn-none">none</button>
+      </div>
+    </section>
+
+    <section class="rail-block">
+      <h3>mode</h3>
+      <select id="mode" class="mode-select">
+        <option value="">auto-detect</option>
+        <option value="answer">answer</option>
+        <option value="generate">generate test cases</option>
+        <option value="review">review coverage / gaps</option>
+        <option value="rca">root cause analysis</option>
+      </select>
+    </section>
+
+    <section class="rail-block">
+      <h3>ingest <button class="ghost tiny" id="ingest-toggle">open</button></h3>
+      <div id="ingest-panel" class="hidden">
+        <select id="ingest-source" class="mode-select">
+          <option value="">all sources</option>
+          {% for s in sources %}{% if s.active %}
+          <option value="{{ s.num }}">{{ s.num }} · {{ s.label }}</option>
+          {% endif %}{% endfor %}
+        </select>
+        <div class="ingest-row">
+          <button class="primary" id="ingest-run">run ingest</button>
+          <label class="force-label"><input type="checkbox" id="ingest-force"> force</label>
+        </div>
+        <div class="progress hidden" id="ingest-progress"><div class="progress-bar" id="ingest-bar"></div></div>
+        <pre class="ingest-log" id="ingest-log"></pre>
+      </div>
+    </section>
+
+    <div class="rail-foot">
+      <div>llm <span class="mono">{{ llm_model }}</span></div>
+      <div>embed <span class="mono">{{ embed_model }}</span></div>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <header class="topbar">
+      <span class="crumb">ask &rarr; hybrid search &rarr; rerank &rarr; cited answer</span>
+      <span class="topbar-right" id="status-line">boot<span class="caret">▌</span></span>
+    </header>
+
+    <div class="thread" id="thread">
+      <div class="hello">
+        <div class="hello-mark">✳</div>
+        <h1>QA Buddy</h1>
+        <p class="hello-sub">One question, one <b>cited</b> answer, grounded in your team's real QA knowledge:
+           the Selenium &amp; Playwright frameworks, 5,000 test cases, JIRA history, PRDs,
+           meeting notes, Lucid flows and Jenkins logs.</p>
+
+        <div class="how">
+          <div class="how-title">How your answer is fetched</div>
+          <div class="how-grid">
+            <div class="how-step">
+              <span class="how-n">1</span>
+              <div><b>Understand</b><span>your question is condensed and rewritten into search variants</span></div>
+            </div>
+            <div class="how-step">
+              <span class="how-n">2</span>
+              <div><b>Hybrid search</b><span>meaning (dense vectors) + exact keywords (ids, exceptions, method names) across the sources you selected</span></div>
+            </div>
+            <div class="how-step">
+              <span class="how-n">3</span>
+              <div><b>Fuse &amp; rerank</b><span>both result lists merge (RRF), a cross-encoder keeps only the 6 most relevant chunks</span></div>
+            </div>
+            <div class="how-step">
+              <span class="how-n">4</span>
+              <div><b>Cited answer</b><span>gpt-oss-120b answers only from those chunks, citing [n] &rarr; file:line, ticket, page or build</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="suggestions">
+          <button class="sug">Why is the checkout coupon test flaky?</button>
+          <button class="sug">What failed in Jenkins build 128?</button>
+          <button class="sug">Generate test cases for the Funnels module</button>
+          <button class="sug">What is our flaky test quarantine policy?</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="composer">
+      <div class="composer-box">
+        <textarea id="q" rows="1" placeholder="ask about tests, tickets, failures, the framework..." autofocus></textarea>
+        <button id="send" class="send" title="send">&uarr;</button>
+      </div>
+      <div class="composer-hint">enter to send · shift+enter for newline · answers always cite their sources</div>
+    </footer>
+  </main>
+
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>

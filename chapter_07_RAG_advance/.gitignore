@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+.venv/
+venv/
+
+# Data
+data/uploads/*
+!data/uploads/.gitkeep
+data/qdrant_data/*
+!data/qdrant_data/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env (contains keys)
+.env
+
+# Test output
+testcase/vwo_test_cases_5000.csv

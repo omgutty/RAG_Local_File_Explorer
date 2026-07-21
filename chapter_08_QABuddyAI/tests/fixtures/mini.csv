@@ -1,0 +1,4 @@
+Issue Type,Issue Key,Summary,Description,Priority,Component,Labels,Test Type,Preconditions,Steps,Expected Result,Browser,Device,Status
+Test,TC-1001,Verify login with valid credentials,User can sign in with a valid email and password,P1,Authentication,smoke,Functional,User account exists,1. Open login page 2. Enter valid email 3. Enter valid password 4. Click Login,User lands on the dashboard,Chrome,Desktop,Active
+Test,TC-1002,Verify error toast on invalid password,Invalid password shows an error toast,P2,Authentication,negative,Functional,User account exists,1. Open login page 2. Enter valid email 3. Enter wrong password 4. Click Login,Error toast '#error-toast' is displayed,Chrome,Desktop,Active
+Test,TC-2044,Apply coupon at checkout,Coupon code applies a discount at checkout,P2,Checkout,regression,E2E,Cart has one item,1. Go to cart 2. Wait for coupon banner 3. Enter SAVE10 in #coupon-input 4. Click Apply,Total price reduced by 10 percent,Firefox,Desktop,Active

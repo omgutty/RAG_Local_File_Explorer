@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Chat — Advanced RAG Explorer{% endblock %}
+{% block head %}
+<script src="{{ url_for('static', filename='js/chat.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<h1>💬 Ask about Test Cases</h1>
+<p class="subtitle">Ask questions or generate new test cases from the knowledge base.</p>
+
+<div class="chat-container" style="height:calc(100vh - 200px);">
+  <div class="chat-messages" id="chat-messages">
+    <div class="message system">
+      <strong>Ask me anything about the VWO test cases!</strong><br>
+      Examples:<br>
+      — "What checkout tests do we have?"<br>
+      — "Show me P0 priority tests"<br>
+      — "Create a new test case for VWO-9999"<br>
+      — "Generate a test for the pricing page"
+    </div>
+  </div>
+
+  <div id="pipeline-detail-chat" class="mb-8">
+    <div class="detail-card" data-detail="rewrite">
+      <h4>🔄 Query Rewrites</h4>
+      <div id="rewrite-content"></div>
+    </div>
+    <div class="detail-card" data-detail="search">
+      <h4>🔍 Hybrid Search Results</h4>
+      <div id="search-content"></div>
+    </div>
+    <div class="detail-card" data-detail="rerank">
+      <h4>📊 Re-ranking</h4>
+      <div id="rerank-content"></div>
+    </div>
+  </div>
+
+  <div class="chat-input-area">
+    <input type="text" id="chat-input" placeholder="Ask a question or request a test case..." style="flex:1;">
+    <button class="btn btn-primary" id="chat-send">Send</button>
+  </div>
+</div>
+{% endblock %}

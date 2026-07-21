@@ -1,0 +1,36 @@
+Started by timer
+Running as SYSTEM
+Building remotely on linux-agent-2 (docker) in workspace /var/jenkins/workspace/selenium-nightly
+[Pipeline] stage (Checkout)
+Cloning repository https://github.com/PramodDutta/ATB13xSeleniumAdvanceFramework
+[Pipeline] stage (Test)
+[INFO] Scanning for projects...
+[INFO] --------------------< com.atb:selenium-framework >---------------------
+[INFO] Building selenium-framework 1.4.0                         build #128
+[INFO] -------------------------------[ jar ]---------------------------------
+[INFO] --- maven-surefire-plugin:3.2.5:test (default-test) @ selenium-framework ---
+[INFO] Running com.atb.tests.LoginTest
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 41.2 s <<< FAILURE! -- in com.atb.tests.LoginTest
+[ERROR] com.atb.tests.LoginTest.testInvalidPassword -- Time elapsed: 12.4 s <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#error-toast"}
+  (Session info: chrome=126.0.6478.126)
+	at com.atb.pages.LoginPage.getErrorToast(LoginPage.java:54)
+	at com.atb.tests.LoginTest.testInvalidPassword(LoginTest.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[INFO] Running com.atb.tests.CheckoutTest
+[WARNING] Flaky retry 1 for com.atb.tests.CheckoutTest.applyCouponTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 63.8 s -- in com.atb.tests.CheckoutTest
+[INFO] Running com.atb.tests.DashboardTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 48.1 s -- in com.atb.tests.DashboardTest
+[INFO]
+[INFO] Results:
+[INFO]
+[ERROR] Failures:
+[ERROR]   LoginTest.testInvalidPassword:41 expected error toast after invalid password
+[INFO]
+[ERROR] Tests run: 12, Failures: 1, Errors: 0, Skipped: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:47 min
+Finished: FAILURE

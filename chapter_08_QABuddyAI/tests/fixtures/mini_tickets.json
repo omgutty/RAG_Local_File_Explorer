@@ -1,0 +1,20 @@
+{
+  "tickets": [
+    {
+      "key": "VWO-9001",
+      "type": "Bug",
+      "summary": "Mini ticket for loader tests",
+      "status": "Open",
+      "priority": "P3",
+      "labels": ["test"],
+      "components": ["Fixtures"],
+      "created": "2026-07-01",
+      "updated": "2026-07-02",
+      "url": "https://example.atlassian.net/browse/VWO-9001",
+      "description": "A small ticket used by unit tests.",
+      "comments": [
+        {"author": "Bot", "created": "2026-07-02", "body": "One short comment."}
+      ]
+    }
+  ]
+}

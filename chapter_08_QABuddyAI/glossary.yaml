@@ -1,0 +1,11 @@
+# Company / domain terminology injected into the system prompt (NOT embedded).
+# Add your org-specific terms here; keep each definition to one line.
+terms:
+  VWO: "Visual Website Optimizer, the product under test (A/B testing and experimentation platform)"
+  RTM: "Requirements Traceability Matrix, maps requirements to test cases"
+  RCA: "Root Cause Analysis of a test failure or bug"
+  SDET: "Software Development Engineer in Test"
+  TC: "Test Case"
+  POM: "Page Object Model pattern in the Selenium/Playwright frameworks"
+  Flaky test: "A test that passes and fails intermittently without code changes"
+  ATB: "Automation Testing Bootcamp framework (Selenium repo prefix)"

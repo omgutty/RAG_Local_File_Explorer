@@ -1,0 +1,37 @@
+# QABuddy.ai tunables. Sizes are characters (~4 chars per token).
+chunking:
+  code:
+    max_chars: 2000        # one method/class unit; bigger units get split
+    min_chars: 250         # tiny units merge into neighbors
+    fallback_size: 1600    # whole-file split when no units detected
+    fallback_overlap: 200
+  testcases:
+    size: 1400             # 1 row = 1 chunk; only absurdly long rows spill
+    overlap: 0
+  jira:
+    size: 4800             # 1 ticket = 1 chunk; long comment threads spill
+    overlap: 0
+  docs:                    # PDFs, MD, company docs, PRD/SRS, lucid exports
+    size: 2048             # ~512 tokens
+    overlap: 300           # ~15%
+  transcripts:
+    size: 3600             # ~900 tokens
+    overlap: 480
+  logs:
+    max_block_chars: 2400  # one failure block (stack trace + context)
+    context_lines: 12
+    retention_days: 90
+
+retrieval:
+  top_n_hybrid: 20         # candidates per dense / sparse search
+  rerank_candidates: 12    # fused list fed to cross-encoder
+  top_k: 6                 # final chunks sent to the LLM
+  rrf_k: 60
+  rewrite_enabled: true
+  rewrite_n: 3
+  relevance_threshold: 0.22  # max rerank score below this -> "not in KB"
+  history_turns: 3
+
+llm:
+  temperature: 0.2
+  max_tokens: 1400

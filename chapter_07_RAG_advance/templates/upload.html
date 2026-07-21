@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Upload Test Cases — Advanced RAG Explorer{% endblock %}
+{% block head %}
+<script src="{{ url_for('static', filename='js/upload.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<h1>📁 Upload Test Cases</h1>
+<p class="subtitle">Upload a CSV or Excel file containing VWO test cases.</p>
+
+<div class="card">
+  <form id="upload-form" method="post" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+    <div class="form-group">
+      <label for="file">Choose file (.csv, .xlsx, .xls)</label>
+      <input type="file" id="file" name="file" accept=".csv,.xlsx,.xls" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload & Preview</button>
+  </form>
+</div>
+
+{% if preview %}
+<div class="card mt-16">
+  <div class="card-header">
+    <span class="card-title">Preview</span>
+    <span class="text-muted">{{ preview.rows }} rows · {{ preview.columns|length }} columns</span>
+  </div>
+
+  <div class="stat-grid" style="margin-bottom:16px;">
+    <div class="stat"><div class="stat-value">{{ preview.rows }}</div><div class="stat-label">Rows</div></div>
+    <div class="stat"><div class="stat-value">{{ preview.columns|length }}</div><div class="stat-label">Columns</div></div>
+  </div>
+
+  <div class="form-group">
+    <label>Data types</label>
+    <table>
+      <tr><th>Column</th><th>Type</th></tr>
+      {% for col, dtype in preview.dtypes.items() %}
+      <tr><td>{{ col }}</td><td class="mono">{{ dtype }}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <form id="ingest-form" method="post" action="{{ url_for('start_ingest') }}">
+    <input type="hidden" name="filename" value="{{ preview.filename }}">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="text_cols">Text columns (for embedding)</label>
+        <select name="text_cols" id="text_cols" multiple required size="6">
+          {% for col in preview.columns %}
+          <option value="{{ col }}" {% if col in preview.suggested_text %}selected{% endif %}>{{ col }}</option>
+          {% endfor %}
+        </select>
+        <small class="text-muted">Hold Ctrl/Cmd to select multiple. These are concatenated for embedding.</small>
+      </div>
+      <div class="form-group">
+        <label for="meta_cols">Metadata columns (for filtering)</label>
+        <select name="meta_cols" id="meta_cols" multiple required size="6">
+          {% for col in preview.columns %}
+          <option value="{{ col }}" {% if col in preview.suggested_meta %}selected{% endif %}>{{ col }}</option>
+          {% endfor %}
+        </select>
+        <small class="text-muted">Stored in Qdrant payload for filtering/search.</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">🚀 Start Ingestion</button>
+  </form>
+</div>
+
+<div class="card mt-16">
+  <h3 class="mb-8">First 5 Rows</h3>
+  <div style="overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>{% for col in preview.columns %}<th>{{ col }}</th>{% endfor %}</tr>
+      </thead>
+      <tbody>
+        {% for row in preview.sample %}
+        <tr>{% for col in preview.columns %}<td>{{ row[col]|string|truncate(60) }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

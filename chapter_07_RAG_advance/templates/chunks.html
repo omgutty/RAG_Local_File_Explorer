@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Browse Chunks — Advanced RAG Explorer{% endblock %}
+{% block head %}
+<script src="{{ url_for('static', filename='js/chunks.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<h1>📄 Browse Chunks</h1>
+<p class="subtitle">View and search through all indexed chunks.</p>
+
+<div class="card">
+  <form method="get" action="{{ url_for('chunks') }}" class="flex flex-wrap gap-8 items-center">
+    <input type="text" name="search" placeholder="Search text..." value="{{ search }}" style="flex:1;min-width:200px;">
+    <select name="priority" style="width:auto;">
+      <option value="">All Priorities</option>
+      {% for p in ['P0','P1','P2','P3'] %}
+      <option value="{{ p }}" {% if filters.priority == p %}selected{% endif %}>{{ p }}</option>
+      {% endfor %}
+    </select>
+    <select name="module" style="width:auto;">
+      <option value="">All Modules</option>
+      {% for m in modules %}
+      <option value="{{ m }}" {% if filters.module == m %}selected{% endif %}>{{ m }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-secondary">Filter</button>
+  </form>
+</div>
+
+{% if total > 0 %}
+<p class="text-muted mb-16">{{ total }} total chunks · Page {{ page }} of {{ total_pages }}</p>
+{% endif %}
+
+<div id="chunks-list">
+  {% for chunk in chunks %}
+  <div class="chunk-card {% if chunk.payload._chunk_id in referenced %}referenced{% endif %}">
+    <div class="chunk-meta">
+      <span class="chunk-badge">{{ chunk.payload._chunk_id }}</span>
+      {% if chunk.payload.priority %}<span class="chunk-badge" style="background:var(--coral-soft);color:var(--coral);">{{ chunk.payload.priority }}</span>{% endif %}
+      {% if chunk.payload.module %}<span class="chunk-badge">{{ chunk.payload.module }}</span>{% endif %}
+      {% if chunk.payload.jira_id %}<span class="chunk-badge">{{ chunk.payload.jira_id }}</span>{% endif %}
+    </div>
+    <div class="chunk-text">{{ chunk.payload.text }}</div>
+    {% if chunk.vector %}
+    <div class="chunk-vector">
+      <details>
+        <summary>Vector preview</summary>
+        <div><strong>Dense</strong> (first 8): [{{ chunk.vector[:8]|join(', ') }}]</div>
+      </details>
+    </div>
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="card"><p class="text-muted">No chunks found. Run ingestion first.</p></div>
+  {% endfor %}
+</div>
+
+{% if total_pages > 1 %}
+<div class="pagination">
+  {% if page > 1 %}
+  <a href="{{ url_for('chunks', page=page-1, search=search, priority=filters.priority, module=filters.module) }}" class="page-link">← Prev</a>
+  {% endif %}
+  <span class="page-info">Page {{ page }} of {{ total_pages }}</span>
+  {% if page < total_pages %}
+  <a href="{{ url_for('chunks', page=page+1, search=search, priority=filters.priority, module=filters.module) }}" class="page-link">Next →</a>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

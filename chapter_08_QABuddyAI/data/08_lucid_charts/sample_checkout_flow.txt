@@ -1,0 +1,20 @@
+Lucid export: Checkout flow diagram (v3, 2026-06-20)
+
+Flow:
+Start -> Cart page -> decision: Coupon applied?
+  yes -> Coupon banner validates code (async fetch, 1-2s) -> Price recalculated
+  no  -> continue
+-> Payment page -> decision: Saved card?
+  yes -> CVV only
+  no  -> Full card form
+-> OTP modal (India accounts only; bypassed for saved cards with tokenized flow)
+-> Order confirmation page -> Confirmation email event
+
+Node notes:
+- Coupon banner: injected asynchronously after page load; renders #coupon-input only after the fetch resolves. Automation must wait for presence, not fixed sleep.
+- OTP modal: uses #otp-input with a 120s expiry timer; resend link enabled after 30s.
+- Confirmation page: order id in [data-testid=order-id]; analytics fires purchase goal for A/B experiments here.
+
+Edge cases called out on diagram:
+- Session timeout during payment returns user to Cart with preserved items.
+- Invalid coupon shows inline error under #coupon-input, checkout not blocked.

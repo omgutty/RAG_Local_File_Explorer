@@ -1,0 +1,53 @@
+{
+  "tickets": [
+    {
+      "key": "VWO-2001",
+      "type": "Bug",
+      "summary": "Login button unresponsive on Safari after session timeout",
+      "status": "Open",
+      "priority": "P1",
+      "labels": ["login", "safari", "session"],
+      "components": ["Authentication"],
+      "created": "2026-06-30",
+      "updated": "2026-07-02",
+      "url": "https://example.atlassian.net/browse/VWO-2001",
+      "description": "Steps to reproduce:\n1. Log in and stay idle until the session expires (30 min).\n2. The timeout modal appears. Dismiss it.\n3. Click the Login button.\nActual: nothing happens. Browser console shows TypeError: Cannot read properties of null (reading 'token') in auth-refresh.js.\nExpected: user is redirected to the login page and can re-authenticate.",
+      "comments": [
+        {"author": "Priya", "created": "2026-07-01", "body": "Reproduced on Safari 18.2 only, Chrome and Firefox are fine. Looks Safari-specific event handling."},
+        {"author": "Rahul", "created": "2026-07-02", "body": "Root cause: the session refresh handler is not re-attached after the timeout modal closes. Fix planned in auth-refresh.js, re-bind on modal dismiss."}
+      ]
+    },
+    {
+      "key": "VWO-2002",
+      "type": "Bug",
+      "summary": "Checkout E2E test flaky: intermittent NoSuchElementException on coupon field",
+      "status": "In Progress",
+      "priority": "P2",
+      "labels": ["flaky", "checkout", "automation"],
+      "components": ["Checkout", "Test Automation"],
+      "created": "2026-07-05",
+      "updated": "2026-07-11",
+      "url": "https://example.atlassian.net/browse/VWO-2002",
+      "description": "CheckoutTest.applyCouponTest fails on roughly 30% of Jenkins runs with org.openqa.selenium.NoSuchElementException on selector #coupon-input.\nThe coupon banner is injected asynchronously 1-2s after page load, so the locator races the banner fetch. Retries are currently masking the failure in nightly runs.",
+      "comments": [
+        {"author": "Priya", "created": "2026-07-08", "body": "Confirmed race condition. Replace the fixed Thread.sleep with an explicit wait on presenceOfElementLocated(#coupon-input), and add @flaky quarantine tag until fixed."}
+      ]
+    },
+    {
+      "key": "VWO-2003",
+      "type": "Bug",
+      "summary": "A/B experiment goal tracking mismatch between dashboard and raw events",
+      "status": "Done",
+      "priority": "P1",
+      "labels": ["experimentation", "analytics"],
+      "components": ["Reporting"],
+      "created": "2026-06-12",
+      "updated": "2026-06-25",
+      "url": "https://example.atlassian.net/browse/VWO-2003",
+      "description": "For experiments with revenue goals, the dashboard conversion count is ~4% lower than raw event exports for the same date range. Timezone boundary handling (UTC vs account timezone) suspected.\nResolution: dashboard aggregation was bucketing by UTC day while exports used account timezone. Fixed by normalizing both to account timezone.",
+      "comments": [
+        {"author": "Dev team", "created": "2026-06-25", "body": "Fix shipped in reporting-service 4.12. Regression test added: RTM item R-114 maps to TC-3321 and TC-3322."}
+      ]
+    }
+  ]
+}
