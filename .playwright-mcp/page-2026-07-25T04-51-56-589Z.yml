@@ -1,0 +1,1022 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: https://vwo.com
+        - img "VWO Logo" [ref=e6]
+      - generic [ref=e8]:
+        - navigation [ref=e9]:
+          - list [ref=e10]:
+            - listitem [ref=e11]:
+              - button "Capabilities" [ref=e12] [cursor=pointer]
+            - listitem [ref=e14]:
+              - link "Pricing" [ref=e15] [cursor=pointer]:
+                - /url: https://vwo.com/pricing/
+            - listitem [ref=e17]:
+              - button "Solutions" [ref=e18] [cursor=pointer]
+            - listitem [ref=e20]:
+              - button "Why VWO?" [ref=e21] [cursor=pointer]
+            - listitem [ref=e23]:
+              - button "Resources" [ref=e24] [cursor=pointer]
+            - listitem [ref=e26]:
+              - button "Partners" [ref=e27] [cursor=pointer]
+        - list [ref=e31]:
+          - listitem [ref=e32]:
+            - link "Contact" [ref=e33] [cursor=pointer]:
+              - /url: https://vwo.com/contact-us/
+          - listitem [ref=e34]:
+            - button "Login" [ref=e35] [cursor=pointer]
+          - listitem [ref=e37]:
+            - 'button "Current language: English" [ref=e38] [cursor=pointer]':
+              - generic [ref=e39]: EN
+  - main [ref=e43]:
+    - generic [ref=e45]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading "AI-powered autonomous digital optimization to maximize conversions" [level=1] [ref=e49]
+          - paragraph [ref=e50]: Build AI workflows to analyze customer behavior, run experiments, and personalize real-time experiences, to drive conversions across your websites and apps.
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - generic [ref=e53]:
+                - text: Business Email
+                - superscript [ref=e54]: "*"
+              - textbox "Business Email *" [ref=e55]:
+                - /placeholder: name@yourcompany.com
+              - button "Request Demo" [disabled] [ref=e56]
+              - generic [ref=e57]: A value for this field is required.
+              - generic [ref=e58]:
+                - checkbox "I agree to Wingify's Privacy Policy & Terms" [ref=e59] [cursor=pointer]
+                - generic [ref=e60] [cursor=pointer]:
+                  - text: I agree to Wingify's
+                  - link "Privacy Policy" [ref=e61]:
+                    - /url: https://wingify.com/privacy-policy/
+                  - text: "&"
+                  - link "Terms" [ref=e62]:
+                    - /url: https://wingify.com/terms/
+            - paragraph [ref=e63]:
+              - text: Prefer self-service?
+              - button "Try our platform for free" [ref=e64] [cursor=pointer]
+        - img "Image" [ref=e65]
+      - generic [ref=e69]:
+        - heading "Thousands of businesses use VWO to analyze, optimize, and personalize their websites, apps, and features." [level=2] [ref=e70]
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - img "Agoda Logo" [ref=e75]
+            - img "Allstate Logo" [ref=e78]
+            - img "Amway Logo" [ref=e81]
+            - img "Arvato Logo" [ref=e84]
+            - img "Blibli.com Logo" [ref=e87]
+            - img "Blueair Logo" [ref=e90]
+            - img "British Red Cross Logo" [ref=e93]
+            - img "Browserstack Logo" [ref=e96]
+            - img "Carrier Logo" [ref=e99]
+            - img "Charles and Keith Logo" [ref=e102]
+            - img "Cigna Logo" [ref=e105]
+            - img "Clayton homes Logo" [ref=e108]
+            - img "Decathalon Logo" [ref=e111]
+            - img "Disney holidays Logo" [ref=e114]
+            - img "Eastpak Logo" [ref=e117]
+            - img "Egnyte Logo" [ref=e120]
+            - img "Emerson Logo" [ref=e123]
+            - img "Equinox plus Logo" [ref=e126]
+            - img "Five-9 Logo" [ref=e129]
+            - img "Fivetran Logo" [ref=e132]
+            - img "Flex Logo" [ref=e135]
+            - img "Flying tiger Logo" [ref=e138]
+            - img "Flynas Logo" [ref=e141]
+            - img "Appareal group Logo" [ref=e144]
+            - img "Happy Fresh Logo" [ref=e147]
+            - img "Homserve Logo" [ref=e150]
+            - img "Housing Logo" [ref=e153]
+            - img "Hub Logo" [ref=e156]
+            - img "ICICI Bank Logo" [ref=e159]
+            - img "Inacap Logo" [ref=e162]
+            - img "Innova sport Logo" [ref=e165]
+            - img "Iprospect Logo" [ref=e168]
+            - img "Ispot TV Logo" [ref=e171]
+            - img "Kaspersky Logo" [ref=e174]
+            - img "Konfio Logo" [ref=e177]
+            - img "Leonisa Logo" [ref=e180]
+            - img "Lever Logo" [ref=e183]
+            - img "Liberty University Logo" [ref=e186]
+            - img "Glidan Logo" [ref=e189]
+            - img "Micro Focus Logo" [ref=e192]
+            - img "Millipore Logo" [ref=e195]
+            - img "Mindvalley Logo" [ref=e198]
+            - img "Nvidia Logo" [ref=e201]
+            - img "O2 Logo" [ref=e204]
+            - img "Omnisend Logo" [ref=e207]
+            - img "OMV petrom Logo" [ref=e210]
+            - img "Open table Logo" [ref=e213]
+            - img "OSN COM Logo" [ref=e216]
+            - img "Payscale Logo" [ref=e219]
+            - img "Paytm Logo" [ref=e222]
+            - img "Pennfoster Logo" [ref=e225]
+            - img "Poweschool Logo" [ref=e228]
+            - img "Rapha Logo" [ref=e231]
+            - img "Rectruitee Logo" [ref=e234]
+            - img "Rhenus Logo" [ref=e237]
+            - img "Rmit online primary Logo" [ref=e240]
+            - img "Robert Half Logo" [ref=e243]
+            - img "Sanoma Media Logo" [ref=e246]
+            - img "Sas Logo" [ref=e249]
+            - img "Scandic Logo" [ref=e252]
+            - img "Similar web Logo" [ref=e255]
+            - img "Smartrecruiters Logo" [ref=e258]
+            - img "Sonova Logo" [ref=e261]
+            - img "Super Retail Group Logo" [ref=e264]
+            - img "Suzuki Logo" [ref=e267]
+            - img "TED Logo" [ref=e270]
+            - img "Telenet Logo" [ref=e273]
+          - generic [ref=e274]:
+            - img "Agoda Logo" [ref=e277]
+            - img "Allstate Logo" [ref=e280]
+            - img "Amway Logo" [ref=e283]
+            - img "Arvato Logo" [ref=e286]
+            - img "Blibli.com Logo" [ref=e289]
+            - img "Blueair Logo" [ref=e292]
+            - img "British Red Cross Logo" [ref=e295]
+            - img "Browserstack Logo" [ref=e298]
+            - img "Carrier Logo" [ref=e301]
+            - img "Charles and Keith Logo" [ref=e304]
+            - img "Cigna Logo" [ref=e307]
+            - img "Clayton homes Logo" [ref=e310]
+            - img "Decathalon Logo" [ref=e313]
+            - img "Disney holidays Logo" [ref=e316]
+            - img "Eastpak Logo" [ref=e319]
+            - img "Egnyte Logo" [ref=e322]
+            - img "Emerson Logo" [ref=e325]
+            - img "Equinox plus Logo" [ref=e328]
+            - img "Five-9 Logo" [ref=e331]
+            - img "Fivetran Logo" [ref=e334]
+            - img "Flex Logo" [ref=e337]
+            - img "Flying tiger Logo" [ref=e340]
+            - img "Flynas Logo" [ref=e343]
+            - img "Appareal group Logo" [ref=e346]
+            - img "Happy Fresh Logo" [ref=e349]
+            - img "Homserve Logo" [ref=e352]
+            - img "Housing Logo" [ref=e355]
+            - img "Hub Logo" [ref=e358]
+            - img "ICICI Bank Logo" [ref=e361]
+            - img "Inacap Logo" [ref=e364]
+            - img "Innova sport Logo" [ref=e367]
+            - img "Iprospect Logo" [ref=e370]
+            - img "Ispot TV Logo" [ref=e373]
+            - img "Kaspersky Logo" [ref=e376]
+            - img "Konfio Logo" [ref=e379]
+            - img "Leonisa Logo" [ref=e382]
+            - img "Lever Logo" [ref=e385]
+            - img "Liberty University Logo" [ref=e388]
+            - img "Glidan Logo" [ref=e391]
+            - img "Micro Focus Logo" [ref=e394]
+            - img "Millipore Logo" [ref=e397]
+            - img "Mindvalley Logo" [ref=e400]
+            - img "Nvidia Logo" [ref=e403]
+            - img "O2 Logo" [ref=e406]
+            - img "Omnisend Logo" [ref=e409]
+            - img "OMV petrom Logo" [ref=e412]
+            - img "Open table Logo" [ref=e415]
+            - img "OSN COM Logo" [ref=e418]
+            - img "Payscale Logo" [ref=e421]
+            - img "Paytm Logo" [ref=e424]
+            - img "Pennfoster Logo" [ref=e427]
+            - img "Poweschool Logo" [ref=e430]
+            - img "Rapha Logo" [ref=e433]
+            - img "Rectruitee Logo" [ref=e436]
+            - img "Rhenus Logo" [ref=e439]
+            - img "Rmit online primary Logo" [ref=e442]
+            - img "Robert Half Logo" [ref=e445]
+            - img "Sanoma Media Logo" [ref=e448]
+            - img "Sas Logo" [ref=e451]
+            - img "Scandic Logo" [ref=e454]
+            - img "Similar web Logo" [ref=e457]
+            - img "Smartrecruiters Logo" [ref=e460]
+            - img "Sonova Logo" [ref=e463]
+            - img "Super Retail Group Logo" [ref=e466]
+            - img "Suzuki Logo" [ref=e469]
+            - img "TED Logo" [ref=e472]
+            - img "Telenet Logo" [ref=e475]
+      - generic [ref=e477]:
+        - generic [ref=e478]:
+          - heading "Comprehensive Experimentation Platform" [level=2] [ref=e479]
+          - paragraph [ref=e480]: End-to-end optimization of entire digital user journeys to deliver exactly what your customers want.
+          - paragraph [ref=e481]: "My business needs:"
+          - generic [ref=e482]: Build a complete optimization program
+          - generic [ref=e485]:
+            - generic [ref=e487]:
+              - link "Experiment Test anything across your digital properties. Seamlessly integrate your customer data to run targeted experiments that align with your unique business goals." [ref=e489] [cursor=pointer]:
+                - /url: https://vwo.com/testing/
+                - generic [ref=e490]: Experiment
+                - paragraph [ref=e496]: Test anything across your digital properties. Seamlessly integrate your customer data to run targeted experiments that align with your unique business goals.
+              - paragraph [ref=e497]:
+                - link "Web Testing" [ref=e498] [cursor=pointer]:
+                  - /url: https://vwo.com/testing/web/
+              - paragraph [ref=e503]:
+                - link "Mobile App Testing" [ref=e504] [cursor=pointer]:
+                  - /url: https://vwo.com/testing/mobile-app/
+              - paragraph [ref=e509]:
+                - link "Feature Testing" [ref=e510] [cursor=pointer]:
+                  - /url: https://vwo.com/feature-experimentation/
+            - link "Observe Utilize qualitative customer analytics to understand evolving user behavior. Transform these insights into actionable, testable hypotheses." [ref=e518] [cursor=pointer]:
+              - /url: https://vwo.com/insights/
+              - generic [ref=e519]: Observe
+              - paragraph [ref=e525]: Utilize qualitative customer analytics to understand evolving user behavior. Transform these insights into actionable, testable hypotheses.
+            - link "Personalize Build tailored experiences for specific user segments by using customer data from your data sources, applications, and analytics." [ref=e529] [cursor=pointer]:
+              - /url: https://vwo.com/personalization/
+              - generic [ref=e530]: Personalize
+              - paragraph [ref=e536]: Build tailored experiences for specific user segments by using customer data from your data sources, applications, and analytics.
+        - generic [ref=e537]:
+          - paragraph [ref=e538]: Want to understand how VWO can help you?
+          - button "Book a Personalised Demo" [ref=e539] [cursor=pointer]
+      - generic [ref=e545]:
+        - generic [ref=e547]:
+          - generic [ref=e548]:
+            - link "our internal data platform" [ref=e549] [cursor=pointer]:
+              - /url: https://vwo.com/customer-data-platform/
+            - heading "Fueled by robust customer data platform" [level=2] [ref=e550]
+            - paragraph [ref=e553]: VWO's agile, event-driven architecture seamlessly blends with your websites, apps, and code bases, offering a holistic 360-degree view of your customer. Make instant decisions with real-time customer data at your fingertips. Get insights from unified data provided by VWO and other platforms you use to deliver delightful experiences.
+            - generic [ref=e554]:
+              - generic [ref=e555]: Integrations
+              - generic [ref=e556]:
+                - img "Icon Web and Mobile" [ref=e557]
+                - text: Data API
+              - generic [ref=e558]:
+                - img "Icon Web and Mobile" [ref=e559]
+                - text: Offline Data
+          - img "Our internal data platform" [ref=e561]
+        - generic [ref=e563]:
+          - generic [ref=e564]:
+            - link "Connected to your existing tech" [ref=e565] [cursor=pointer]:
+              - /url: https://help.vwo.com/hc/en-us/articles/4417910779033#h_01FVHWZ4B5MV405BEMMYDT8PQM
+            - heading "Powered by VWO’s cutting-edge tech" [level=2] [ref=e566]
+            - paragraph [ref=e569]: Experience lightning-fast optimization, driven by our dynamic CDN technology and the robust Google Cloud Platform (GCP). VWO is engineered to minimize payloads, improve latency, and compute only what's crucial for your campaigns. Ensure precise results with unrivaled speed, leveraging GCP's secure and scalable infrastructure.
+          - img "Connect with your existing tech" [ref=e572]
+      - generic [ref=e574]:
+        - heading "Wandz - An agentic optimization system. Not a collection of tools." [level=2] [ref=e575]
+        - paragraph [ref=e576]: Wandz lets you set up automated workflows to analyze user behavior, identify improvement areas, generate hypotheses, create variations, and summarize reports, so that your team focuses on strategy & decision making, not grunt work.
+        - img "Wandz gradient eclipse visual" [ref=e579]
+      - generic [ref=e581]:
+        - generic [ref=e582]:
+          - heading "What can Wandz do for you?" [level=2] [ref=e583]
+          - generic [ref=e584]:
+            - generic [ref=e585]: Analyze
+            - generic [ref=e586]: Suggest
+            - generic [ref=e587]: Build
+            - generic [ref=e588]: Summarize
+          - link "Explore AI-Driven Optimization" [ref=e589] [cursor=pointer]:
+            - /url: https://vwo.com/ai/
+        - generic [ref=e592]:
+          - button "Spot hidden friction instantly Wandz analyzes heatmaps and session recordings, to identify behavioral patterns and highlight issues like rage/dead clicks, errors, or drop-offs. Instead of digging through data, you get clear signals on what needs fixing." [ref=e593] [cursor=pointer]:
+            - generic [ref=e594]:
+              - strong [ref=e596]: Spot hidden friction instantly
+              - generic [ref=e597]: Wandz analyzes heatmaps and session recordings, to identify behavioral patterns and highlight issues like rage/dead clicks, errors, or drop-offs. Instead of digging through data, you get clear signals on what needs fixing.
+          - button [ref=e598] [cursor=pointer]:
+            - generic [ref=e599]:
+              - strong [ref=e601]: Generate high-impact test ideas
+              - generic: Break through creative blocks. Just prompt the AI, and get ready-to-launch ideas instantly.
+          - button [ref=e602] [cursor=pointer]:
+            - generic [ref=e603]:
+              - strong [ref=e605]: Build ready-to-launch campaigns with single prompts
+              - generic: Just tell Wandz - Where, what, and for whom to optimize? Our AI will shortlist pages, create variations, set up targeting conditions, and configure suitable metrics for you.
+          - button [ref=e606] [cursor=pointer]:
+            - generic [ref=e607]:
+              - strong [ref=e609]: Get proactive insights and next-step recommendations
+              - generic: Let AI analyze campaign performance and suggest next steps, so that you don’t just save time, but you even see what’s beyond your reach.
+          - button [ref=e610] [cursor=pointer]:
+            - generic [ref=e611]:
+              - strong [ref=e613]: Just chat and get summaries, status updates, and suggestions
+              - generic: Get instant insights from your campaigns and behavioral data in one chat. Connect tools like GA4, Mixpanel, etc. Tag VWO’s built-in agents, assign tasks, and automate tedious tasks.
+      - generic [ref=e620]:
+        - generic [ref=e621]:
+          - heading "Build your optimization program across all teams" [level=2] [ref=e622]
+          - paragraph [ref=e623]: An impactful optimization program extends across teams and benefits the whole organization. Our platform is designed to empower all teams by solving problems specific to them.
+        - generic [ref=e624]:
+          - generic [ref=e626]:
+            - generic [ref=e628]:
+              - generic [ref=e632]:
+                - generic [ref=e633]:
+                  - heading [level=3] [ref=e634]: Growth Marketers
+                  - list [ref=e636]:
+                    - listitem [ref=e637]: Create and optimize omnichannel experiences that are hyper-targeted to user personas.
+                    - listitem [ref=e638]: Track CTR, AOV, and forms filled for your visitors.
+                    - listitem [ref=e639]: Test and personalize without going to your developer.
+                - blockquote [ref=e641]:
+                  - generic [ref=e644]:
+                    - paragraph [ref=e646]: Using VWO, we are able to swiftly launch A/B tests, tackle data trends and customer problems. We merge VWO reports with our tools for complete insights into user behavior.
+                    - generic [ref=e650]:
+                      - text: Molly Parker
+                      - paragraph [ref=e651]: Sr. Director, Site Content & Creative Operations
+              - generic [ref=e659]:
+                - generic [ref=e660]:
+                  - heading [level=3] [ref=e661]: UX & Analytics
+                  - list [ref=e663]:
+                    - listitem [ref=e664]: Identify roadblocks in the buying journey.
+                    - listitem [ref=e665]: Rectify bottlenecks by testing images, layouts, and placements.
+                    - listitem [ref=e666]: Test to build low friction scroll experience.
+                - blockquote [ref=e668]:
+                  - generic [ref=e671]:
+                    - paragraph [ref=e673]: VWO helps us get real results with tangible insights for our clients. Flexibility to set up as many goals on the fly is incredibly valuable to get the most out of an experiment.
+                    - generic [ref=e677]:
+                      - text: Brandon Gentry
+                      - paragraph [ref=e678]: Director, User Experience
+              - tabpanel [ref=e682]:
+                - generic [ref=e685]:
+                  - generic [ref=e686]:
+                    - heading "Product Managers" [level=3] [ref=e687]
+                    - list [ref=e689]:
+                      - listitem [ref=e690]: Optimize to make sticky apps and features.
+                      - listitem [ref=e691]: Test and rollout features progressively.
+                      - listitem [ref=e692]: Measure the engagement, adoption, loyalty, and conversion of your product users.
+                  - blockquote [ref=e694]:
+                    - generic [ref=e695]:
+                      - img "Icon quote" [ref=e696]
+                      - generic [ref=e697]:
+                        - paragraph [ref=e699]: I really like that we can use VWO across every department. It's user-friendly, straightforward, and test results are easily comprehensible even for non-testing individuals.
+                        - generic [ref=e700]:
+                          - generic [ref=e703]:
+                            - text: Marc Sandifer
+                            - paragraph [ref=e704]: Senior Product Manager
+                          - img "Contorion" [ref=e706]
+              - tabpanel [ref=e709]:
+                - generic [ref=e712]:
+                  - generic [ref=e713]:
+                    - heading [level=3] [ref=e714]: Engineers
+                    - list [ref=e716]:
+                      - listitem [ref=e717]: Ship features with confidence.
+                      - listitem [ref=e718]: Reduce risk with the progressive deployment of features.
+                      - listitem [ref=e719]: Use easy-to-configure SDKs.
+                      - listitem [ref=e720]: Get an SDK for every stack & device.
+                  - blockquote [ref=e722]:
+                    - generic [ref=e725]:
+                      - paragraph [ref=e727]: With VWO, we have executed and implemented numerous A/B tests that have helped improve overall CRO architecture across our website.
+                      - generic [ref=e731]:
+                        - text: Phillip Roberts
+                        - paragraph [ref=e732]: Web Developer
+              - tabpanel [ref=e737]:
+                - generic [ref=e740]:
+                  - generic [ref=e741]:
+                    - heading [level=3] [ref=e742]: Growth Marketers
+                    - list [ref=e744]:
+                      - listitem [ref=e745]: Create and optimize omnichannel experiences that are hyper-targeted to user personas.
+                      - listitem [ref=e746]: Track CTR, AOV, and forms filled for your visitors.
+                      - listitem [ref=e747]: Test and personalize without going to your developer.
+                  - blockquote [ref=e749]:
+                    - generic [ref=e752]:
+                      - paragraph [ref=e754]: Using VWO, we are able to swiftly launch A/B tests, tackle data trends and customer problems. We merge VWO reports with our tools for complete insights into user behavior.
+                      - generic [ref=e758]:
+                        - text: Molly Parker
+                        - paragraph [ref=e759]: Sr. Director, Site Content & Creative Operations
+              - tabpanel [ref=e764]:
+                - generic [ref=e767]:
+                  - generic [ref=e768]:
+                    - heading [level=3] [ref=e769]: UX & Analytics
+                    - list [ref=e771]:
+                      - listitem [ref=e772]: Identify roadblocks in the buying journey.
+                      - listitem [ref=e773]: Rectify bottlenecks by testing images, layouts, and placements.
+                      - listitem [ref=e774]: Test to build low friction scroll experience.
+                  - blockquote [ref=e776]:
+                    - generic [ref=e779]:
+                      - paragraph [ref=e781]: VWO helps us get real results with tangible insights for our clients. Flexibility to set up as many goals on the fly is incredibly valuable to get the most out of an experiment.
+                      - generic [ref=e785]:
+                        - text: Brandon Gentry
+                        - paragraph [ref=e786]: Director, User Experience
+              - generic [ref=e793]:
+                - generic [ref=e794]:
+                  - heading [level=3] [ref=e795]: Product Managers
+                  - list [ref=e797]:
+                    - listitem [ref=e798]: Optimize to make sticky apps and features.
+                    - listitem [ref=e799]: Test and rollout features progressively.
+                    - listitem [ref=e800]: Measure the engagement, adoption, loyalty, and conversion of your product users.
+                - blockquote [ref=e802]:
+                  - generic [ref=e805]:
+                    - paragraph [ref=e807]: I really like that we can use VWO across every department. It's user-friendly, straightforward, and test results are easily comprehensible even for non-testing individuals.
+                    - generic [ref=e811]:
+                      - text: Marc Sandifer
+                      - paragraph [ref=e812]: Senior Product Manager
+              - generic [ref=e820]:
+                - generic [ref=e821]:
+                  - heading [level=3] [ref=e822]: Engineers
+                  - list [ref=e824]:
+                    - listitem [ref=e825]: Ship features with confidence.
+                    - listitem [ref=e826]: Reduce risk with the progressive deployment of features.
+                    - listitem [ref=e827]: Use easy-to-configure SDKs.
+                    - listitem [ref=e828]: Get an SDK for every stack & device.
+                - blockquote [ref=e830]:
+                  - generic [ref=e833]:
+                    - paragraph [ref=e835]: With VWO, we have executed and implemented numerous A/B tests that have helped improve overall CRO architecture across our website.
+                    - generic [ref=e839]:
+                      - text: Phillip Roberts
+                      - paragraph [ref=e840]: Web Developer
+              - generic [ref=e848]:
+                - generic [ref=e849]:
+                  - heading [level=3] [ref=e850]: Growth Marketers
+                  - list [ref=e852]:
+                    - listitem [ref=e853]: Create and optimize omnichannel experiences that are hyper-targeted to user personas.
+                    - listitem [ref=e854]: Track CTR, AOV, and forms filled for your visitors.
+                    - listitem [ref=e855]: Test and personalize without going to your developer.
+                - blockquote [ref=e857]:
+                  - generic [ref=e860]:
+                    - paragraph [ref=e862]: Using VWO, we are able to swiftly launch A/B tests, tackle data trends and customer problems. We merge VWO reports with our tools for complete insights into user behavior.
+                    - generic [ref=e866]:
+                      - text: Molly Parker
+                      - paragraph [ref=e867]: Sr. Director, Site Content & Creative Operations
+              - generic [ref=e875]:
+                - generic [ref=e876]:
+                  - heading [level=3] [ref=e877]: UX & Analytics
+                  - list [ref=e879]:
+                    - listitem [ref=e880]: Identify roadblocks in the buying journey.
+                    - listitem [ref=e881]: Rectify bottlenecks by testing images, layouts, and placements.
+                    - listitem [ref=e882]: Test to build low friction scroll experience.
+                - blockquote [ref=e884]:
+                  - generic [ref=e887]:
+                    - paragraph [ref=e889]: VWO helps us get real results with tangible insights for our clients. Flexibility to set up as many goals on the fly is incredibly valuable to get the most out of an experiment.
+                    - generic [ref=e893]:
+                      - text: Brandon Gentry
+                      - paragraph [ref=e894]: Director, User Experience
+            - tablist [ref=e898]:
+              - tab "1 of 4" [selected] [ref=e899] [cursor=pointer]: Product Managers
+              - tab "2 of 4" [ref=e900] [cursor=pointer]: Engineers
+              - tab "3 of 4" [ref=e901] [cursor=pointer]: Growth Marketers
+              - tab "4 of 4" [ref=e902] [cursor=pointer]: UX & Analytics
+          - button "Book a Personalised Demo" [ref=e904] [cursor=pointer]
+      - generic [ref=e908]:
+        - generic [ref=e912]:
+          - heading "Deliver experiences that your users love" [level=2] [ref=e913]
+          - paragraph [ref=e914]: VWO products empower you to create and rollout great digital experiences using a suite of products built for your entire optimization program for any application. Understand user behavior with qualitative insights. Validate your optimization hypothesis with testing. Know what works for a specific audience. Personalize it at the right place, right time. All using one platform.
+        - generic [ref=e916]:
+          - heading "Create wow experiences using your user data" [level=3] [ref=e917]
+          - paragraph [ref=e918]: Observe user behavior and events, and track key attributes to understand how your customer behavior is evolving. So that you can evolve your digital experiences as per your user’s expectations. You can also use this data to build effective hypotheses for testing. And to optimize any visitor data segment, whether from your application, third-party sources, or offline data.
+          - generic [ref=e921]:
+            - heading "User Attributes" [level=4] [ref=e924]
+            - heading "User Events" [level=4] [ref=e927]
+            - heading "Third Party Data" [level=4] [ref=e930]
+            - heading "Offline Data" [level=4] [ref=e934]
+        - generic [ref=e936]:
+          - heading "Optimize what matters to you" [level=3] [ref=e937]
+          - paragraph [ref=e938]: Optimize experiences on any device. Track and understand your user behavior on websites and mobile apps. Use this customer data to test and personalize UX, content, feature variables, server-side functionality, or any complex use case.
+          - generic [ref=e940]:
+            - generic [ref=e941]:
+              - generic [ref=e942]: Any
+              - generic [ref=e945]:
+                - generic [ref=e946]: Metric
+                - generic [ref=e947]: Device
+                - generic [ref=e948]: Stack
+                - generic [ref=e949]: Metric
+                - generic [ref=e950]: Device
+                - generic [ref=e951]: Stack
+                - generic [ref=e952]: Metric
+                - generic [ref=e953]: Device
+                - generic [ref=e954]: Stack
+                - generic [ref=e955]: Metric
+                - generic [ref=e956]: Device
+                - generic [ref=e957]: Stack
+                - generic [ref=e958]: Metric
+                - generic [ref=e959]: Device
+                - generic [ref=e960]: Stack
+                - generic [ref=e961]: Metric
+            - generic [ref=e963]:
+              - img "VWO Logo" [ref=e967]
+              - generic [ref=e974]:
+                - generic:
+                  - generic [ref=e975]: TV
+                  - generic [ref=e980]: Desktop
+                  - generic [ref=e985]: Mobile
+                  - generic [ref=e991]: OTT
+                  - generic [ref=e997]: Console
+                - generic:
+                  - generic [ref=e1002]: Frontend
+                  - generic [ref=e1007]: Server-side
+                  - generic [ref=e1012]: Feature
+                - generic:
+                  - generic [ref=e1018]: Standard Events
+                  - generic [ref=e1023]: Custom Events
+        - generic [ref=e1030]:
+          - generic [ref=e1031]:
+            - heading "Pin down friction areas by observing user behavior" [level=3] [ref=e1032]
+            - paragraph [ref=e1033]: Take a closer look at digital user journeys and identify conversion roadblocks using heatmaps, session recordings, funnels, form analytics, and surveys.
+            - list [ref=e1034]:
+              - listitem [ref=e1035]: Discover growth opportunities in your website and mobile app
+              - listitem [ref=e1036]: Observe to generate informed ideas and hypotheses to test
+              - listitem [ref=e1037]: See how visitors engage with your test campaigns
+          - img "Observing visitor behavior" [ref=e1040]
+        - generic [ref=e1042]:
+          - heading "Build experiences using high-performance script and SDKs" [level=3] [ref=e1043]
+          - paragraph [ref=e1044]: Start testing without breaking a sweat. We are easy to configure and get started.
+          - generic [ref=e1045]:
+            - generic [ref=e1047]:
+              - generic [ref=e1048]:
+                - heading "Web Script" [level=4] [ref=e1049]
+                - paragraph [ref=e1050]: VWO SmartCode powers your entire experimentation cycle singlehandedly. It also has the least impact on Total Blocking Time (TBT) on your website and offers the best performance in the industry.
+                - generic [ref=e1051]:
+                  - generic [ref=e1052]:
+                    - img "icon Web and Mobile" [ref=e1053]
+                    - text: SmartCode
+                  - generic [ref=e1054]:
+                    - img "icon asynchronous smartcode" [ref=e1055]
+                    - text: Asynchronous SmartCode
+              - img "Web Script" [ref=e1057]
+            - generic [ref=e1059]:
+              - generic [ref=e1060]:
+                - heading "SDK and APIs" [level=4] [ref=e1061]
+                - paragraph [ref=e1062]: VWO’s secure, lightweight SDKs in 8+ languages enable you to run complex back-end tests while ensuring that your visitors have a seamless experience across devices even when they are part of a test. You can also track their on-app behavior using our mobile insights SDK.
+                - generic [ref=e1063]:
+                  - generic [ref=e1064]:
+                    - img "Icon Web and Mobile" [ref=e1065]
+                    - text: Feature Testing
+                  - generic [ref=e1066]:
+                    - img "Icon Web and Mobile" [ref=e1067]
+                    - text: Mobile App Testing
+                  - generic [ref=e1068]:
+                    - img "Icon Web and Mobile" [ref=e1069]
+                    - text: Mobile App Insights
+              - generic [ref=e1070]:
+                - generic [ref=e1071]:
+                  - generic [ref=e1072]:
+                    - img "NodeJS Logo" [ref=e1075]
+                    - img "Ruby Logo" [ref=e1078]
+                    - img "Go Logo" [ref=e1081]
+                    - img "Python Logo" [ref=e1084]
+                    - img "PHP Logo" [ref=e1087]
+                  - generic [ref=e1088]:
+                    - img "NodeJS Logo" [ref=e1091]
+                    - img "Ruby Logo" [ref=e1094]
+                    - img "Go Logo" [ref=e1097]
+                    - img "Python Logo" [ref=e1100]
+                    - img "PHP Logo" [ref=e1103]
+                - generic [ref=e1104]:
+                  - generic [ref=e1105]:
+                    - img "Java Logo" [ref=e1108]
+                    - img "dotnet Logo" [ref=e1111]
+                    - img "Javascript Logo" [ref=e1114]
+                    - img "Android Logo" [ref=e1117]
+                    - img "ios Logo" [ref=e1120]
+                  - generic [ref=e1121]:
+                    - img "Java Logo" [ref=e1124]
+                    - img "dotnet Logo" [ref=e1127]
+                    - img "Javascript Logo" [ref=e1130]
+                    - img "Android Logo" [ref=e1133]
+                    - img "ios Logo" [ref=e1136]
+        - generic [ref=e1138]:
+          - heading "Run unlimited optimization at scale" [level=3] [ref=e1139]
+          - paragraph [ref=e1140]: Optimize as much as you want, with no limit on variations, account users, metrics, session recordings, or integrations to your user data source.
+          - generic [ref=e1143]:
+            - heading "Users" [level=4] [ref=e1146]
+            - heading "Concurrent campaigns" [level=4] [ref=e1151]: Concurrentcampaigns
+            - heading "Session recordings" [level=4] [ref=e1155]: Sessionrecordings
+            - heading "Integrations" [level=4] [ref=e1159]
+            - heading "Metrics" [level=4] [ref=e1164]
+        - generic [ref=e1167]:
+          - heading "Test everything under one roof" [level=3] [ref=e1168]
+          - paragraph [ref=e1169]: Whether you have a website or mobile app, we provide SDK-based testing for all technologies. For non-techies, our powerful, no-code visual editor is all you need to get started with testing (without any engineering support).
+          - generic [ref=e1171]:
+            - generic [ref=e1173]:
+              - heading [level=4] [ref=e1176]: Code Editor
+              - heading [level=4] [ref=e1180]: SDK-based Testing
+              - tabpanel [ref=e1181]:
+                - heading "Visual Editor" [level=4] [ref=e1183]
+              - tabpanel [ref=e1185]:
+                - heading "Code Editor" [level=4] [ref=e1187]
+              - tabpanel [ref=e1189]:
+                - heading [level=4] [ref=e1191]: SDK-based Testing
+              - heading [level=4] [ref=e1194]: Visual Editor
+              - heading [level=4] [ref=e1198]: Code Editor
+              - heading [level=4] [ref=e1202]: SDK-based Testing
+            - tablist [ref=e1203]:
+              - tab "1 of 2" [selected] [ref=e1204] [cursor=pointer]: Visual Editor
+              - tab "2 of 2" [ref=e1205] [cursor=pointer]: Code Editor
+              - tab "3 of 2" [ref=e1206] [cursor=pointer]: SDK-based Testing
+        - generic [ref=e1209]:
+          - generic [ref=e1210]:
+            - heading "Identify changes that boost your key metrics" [level=3] [ref=e1211]
+            - paragraph [ref=e1212]: Did an experiment unexpectedly impact conversions or customer behavior? Use VWO’s accurate, real-time reporting using Bayesian Statistics to discover it easily. VWO's reports help you answer business questions by giving you insights into whether your variations are better than control, equivalent to control, or worse than control.
+          - img "Boost your key metrics" [ref=e1215]
+        - generic [ref=e1218]:
+          - generic [ref=e1219]:
+            - heading "Understand the ‘why’ behind each test result" [level=3] [ref=e1220]
+            - paragraph [ref=e1221]: Stop guessing and see the exact user behavior that influences your test results. With interconnected heatmaps and session recordings in your test reports, you can instantly compare how user behavior differs on control vs. variation, find hidden struggle areas that silently impact your test, and make decisions with clarity, not speculation.
+          - img "Why behind each test result" [ref=e1223]
+      - generic [ref=e1225]:
+        - heading "Over a decade of experience in optimization" [level=2] [ref=e1226]
+        - generic [ref=e1227]:
+          - generic [ref=e1228]:
+            - generic [ref=e1229]:
+              - text: 170Bn
+              - generic [ref=e1230]: +
+            - generic [ref=e1231]: Experiences Optimized
+          - generic [ref=e1232]:
+            - generic [ref=e1233]:
+              - text: 2Mn
+              - generic [ref=e1234]: +
+            - generic [ref=e1235]: Experiments Run
+          - generic [ref=e1236]:
+            - generic [ref=e1237]:
+              - text: 675k
+              - generic [ref=e1238]: +
+            - generic [ref=e1239]: Websites Powered
+          - generic [ref=e1240]:
+            - generic [ref=e1241]:
+              - text: 40,000
+              - generic [ref=e1242]: +
+            - generic [ref=e1243]: Customers Served
+          - generic [ref=e1244]:
+            - generic [ref=e1245]:
+              - text: "190"
+              - generic [ref=e1246]: +
+            - generic [ref=e1247]: Countries
+          - generic [ref=e1248]:
+            - generic [ref=e1249]:
+              - text: "15"
+              - generic [ref=e1250]: +
+            - generic [ref=e1251]: Years
+      - generic [ref=e1254]:
+        - generic [ref=e1255]:
+          - heading "Zero compromises on privacy, security, and compliance" [level=2] [ref=e1256]
+          - paragraph [ref=e1257]: At VWO, we take a privacy-first approach to building world-class products.
+        - generic [ref=e1258]:
+          - generic [ref=e1260]:
+            - link "Data security" [ref=e1261] [cursor=pointer]:
+              - /url: https://vwo.com/security/
+            - generic [ref=e1262]:
+              - heading "Secure" [level=3] [ref=e1263]
+              - paragraph [ref=e1264]: VWO hosts all your data on the Google Cloud Platform. No employee of VWO can physically access the data.
+              - generic [ref=e1265]: Know more
+            - generic [ref=e1269]:
+              - img "gdpr ready certificattion" [ref=e1271]
+              - img "ccpa ready certification" [ref=e1273]
+              - img "International Organization Standardization Certification" [ref=e1275]
+              - img "ccpa ready certification" [ref=e1277]
+              - img "gdpr ready certificattion" [ref=e1279]
+              - img "ccpa ready certification" [ref=e1281]
+              - img "International Organization Standardization Certification" [ref=e1283]
+              - img "gdpr ready certificattion" [ref=e1285]
+              - img "International Organization Standardization Certification" [ref=e1287]
+              - img "International Organization Standardization Certification" [ref=e1289]
+              - img "International Organization Standardization Certification" [ref=e1291]
+          - generic [ref=e1293]:
+            - generic [ref=e1295]:
+              - link "Data Private" [ref=e1296] [cursor=pointer]:
+                - /url: https://vwo.com/compliance/privacy-principles/
+              - heading "Private" [level=3] [ref=e1297]
+              - paragraph [ref=e1298]: Our privacy-first approach ensures that your website visitors’ privacy is respected and your data is safe.
+              - generic [ref=e1299]: Know more
+            - generic [ref=e1303]:
+              - link "our security controls with evolving regulations and reforms" [ref=e1304] [cursor=pointer]:
+                - /url: https://vwo.com/compliance/
+              - heading "Compliant" [level=3] [ref=e1305]
+              - paragraph [ref=e1306]: We update our security controls with evolving regulations and reforms so that your optimization program is always compliant.
+              - generic [ref=e1307]: Know more
+      - generic [ref=e1312]:
+        - generic [ref=e1313]:
+          - heading "Designed to be enterprise-ready and scalable" [level=2] [ref=e1314]
+          - paragraph [ref=e1315]: "VWO Platform has everything large businesses need: top-notch features, strong security, easy accessibility, and excellent performance."
+        - generic [ref=e1316]:
+          - generic [ref=e1318]:
+            - generic [ref=e1320]:
+              - link "Built to scale" [ref=e1321] [cursor=pointer]:
+                - /url: https://vwo.com/why-us/technology/
+              - heading "Built to scale" [level=3] [ref=e1322]
+              - paragraph [ref=e1323]: Billions of requests daily with 100% uptime. Scale your CRO program to any level without worries.
+              - generic [ref=e1324]: Know more
+            - generic [ref=e1328]:
+              - link "Unmatched performance" [ref=e1329] [cursor=pointer]:
+                - /url: https://vwo.com/why-us/technology/zero-impact-loading/
+              - heading "Unmatched performance" [level=3] [ref=e1330]
+              - paragraph [ref=e1331]: VWO’s Asynchronous SmartCode and our optimized SDKs ensure no lag in your website load time. Ever.
+              - generic [ref=e1332]: Know more
+          - generic [ref=e1336]:
+            - link "Best support" [ref=e1337] [cursor=pointer]:
+              - /url: https://vwo.com/why-us/customer-success/
+            - generic [ref=e1338]:
+              - heading "Industry best support" [level=3] [ref=e1339]
+              - paragraph [ref=e1340]: Dedicated 24*7 support, seamless onboarding, and end-to-end consultation.
+              - generic [ref=e1341]: Know more
+            - generic [ref=e1345]:
+              - table [ref=e1346]:
+                - rowgroup [ref=e1347]:
+                  - row [ref=e1348]:
+                    - columnheader [ref=e1349]
+                    - columnheader "Industry" [ref=e1350]
+                    - columnheader [ref=e1351]:
+                      - img "VWO Logo" [ref=e1352]
+                - rowgroup [ref=e1353]:
+                  - row [ref=e1354]:
+                    - rowheader "CSAT" [ref=e1355]
+                    - cell "75-85%" [ref=e1356]
+                    - cell "99%" [ref=e1357]
+                  - row [ref=e1358]:
+                    - rowheader "First Response Time" [ref=e1359]
+                    - cell "13.30 hrs" [ref=e1360]
+                    - cell "15 mins" [ref=e1361]
+              - paragraph [ref=e1362]:
+                - link "As per industry benchmarks" [ref=e1363] [cursor=pointer]:
+                  - /url: https://www.freshworks.com/assets/resources/FS-Benchmark-2025.pdf
+      - generic [ref=e1367]:
+        - generic [ref=e1368]:
+          - text: e-book
+          - heading "Experimentation Program Maturity Report 2024" [level=2] [ref=e1369]
+          - paragraph [ref=e1370]: VWO & Speero by CXL joined forces to analyze data from 200+ testing programs, unveiling 18 pivotal insights to enhance the effectiveness of your CRO strategies. Get a download of all ideas in this detailed report.
+          - link "Get a Copy Now" [ref=e1371] [cursor=pointer]:
+            - /url: https://vwo.com/ebooks/experimentation-program-maturity-report-2024/
+        - img "Experimentation Program Maturity Report 2024" [ref=e1373]
+    - generic [ref=e1376]:
+      - heading "Get started with VWO today" [level=2] [ref=e1377]
+      - generic [ref=e1378]:
+        - button "Explore for Free" [ref=e1379] [cursor=pointer]
+        - button "Request Demo" [ref=e1380] [cursor=pointer]
+    - generic [ref=e1386]:
+      - heading "Footer Navigation" [level=2] [ref=e1387]
+      - generic [ref=e1388]:
+        - heading "Popular In-depth Guides" [level=3] [ref=e1390]
+        - generic [ref=e1391]:
+          - list [ref=e1393]:
+            - listitem [ref=e1394]:
+              - link "A/B Testing" [ref=e1395] [cursor=pointer]:
+                - /url: https://vwo.com/ab-testing/
+            - listitem [ref=e1396]:
+              - link "Cart Abandonment" [ref=e1397] [cursor=pointer]:
+                - /url: https://vwo.com/cart-abandonment/
+            - listitem [ref=e1398]:
+              - link "Conversion Rate Optimization" [ref=e1399] [cursor=pointer]:
+                - /url: https://vwo.com/conversion-rate-optimization/
+            - listitem [ref=e1400]:
+              - link "Customer Data Platform" [ref=e1401] [cursor=pointer]:
+                - /url: https://vwo.com/customer-data-platform-guide/
+            - listitem [ref=e1402]:
+              - link "Customer Engagement" [ref=e1403] [cursor=pointer]:
+                - /url: https://vwo.com/customer-engagement/
+            - listitem [ref=e1404]:
+              - link "Customer Experience Optimization" [ref=e1405] [cursor=pointer]:
+                - /url: https://vwo.com/customer-experience-optimization/
+          - list [ref=e1407]:
+            - listitem [ref=e1408]:
+              - link "Customer Retention" [ref=e1409] [cursor=pointer]:
+                - /url: https://vwo.com/customer-retention/
+            - listitem [ref=e1410]:
+              - link "Feature Rollout" [ref=e1411] [cursor=pointer]:
+                - /url: https://vwo.com/feature-rollout/
+            - listitem [ref=e1412]:
+              - link "Grow Website Traffic" [ref=e1413] [cursor=pointer]:
+                - /url: https://vwo.com/grow-website-traffic/
+            - listitem [ref=e1414]:
+              - link "Landing Page Optimization" [ref=e1415] [cursor=pointer]:
+                - /url: https://vwo.com/landing-page-optimization/
+            - listitem [ref=e1416]:
+              - link "Mobile App A/B Testing" [ref=e1417] [cursor=pointer]:
+                - /url: https://vwo.com/mobile-app-ab-testing/
+            - listitem [ref=e1418]:
+              - link "Multivariate Testing" [ref=e1419] [cursor=pointer]:
+                - /url: https://vwo.com/multivariate-testing/
+          - list [ref=e1421]:
+            - listitem [ref=e1422]:
+              - link "Push Notifications" [ref=e1423] [cursor=pointer]:
+                - /url: https://vwo.com/push-notifications/
+            - listitem [ref=e1424]:
+              - link "Server-Side Testing" [ref=e1425] [cursor=pointer]:
+                - /url: https://vwo.com/server-side-testing/
+            - listitem [ref=e1426]:
+              - link "Session Recording" [ref=e1427] [cursor=pointer]:
+                - /url: https://vwo.com/session-recording/
+            - listitem [ref=e1428]:
+              - link "Usability Testing" [ref=e1429] [cursor=pointer]:
+                - /url: https://vwo.com/usability-testing/
+            - listitem [ref=e1430]:
+              - link "Visitor Behavior Analysis" [ref=e1431] [cursor=pointer]:
+                - /url: https://vwo.com/visitor-behavior-analysis/
+            - listitem [ref=e1432]:
+              - link "Web Form Analytics" [ref=e1433] [cursor=pointer]:
+                - /url: https://vwo.com/form-analytics/
+          - list [ref=e1435]:
+            - listitem [ref=e1436]:
+              - link "Website Heatmaps" [ref=e1437] [cursor=pointer]:
+                - /url: https://vwo.com/website-heatmap/
+            - listitem [ref=e1438]:
+              - link "Website Optimization" [ref=e1439] [cursor=pointer]:
+                - /url: https://vwo.com/website-optimization/
+            - listitem [ref=e1440]:
+              - link "Website Personalization" [ref=e1441] [cursor=pointer]:
+                - /url: https://vwo.com/website-personalization/
+            - listitem [ref=e1442]:
+              - link "Website Redesign" [ref=e1443] [cursor=pointer]:
+                - /url: https://vwo.com/website-redesign/
+            - listitem [ref=e1444]:
+              - link "Website Surveys" [ref=e1445] [cursor=pointer]:
+                - /url: https://vwo.com/website-surveys/
+      - generic [ref=e1446]:
+        - generic [ref=e1447]:
+          - heading "Products" [level=3] [ref=e1448]
+          - list [ref=e1449]:
+            - listitem [ref=e1450]:
+              - link "VWO Testing" [ref=e1451] [cursor=pointer]:
+                - /url: https://vwo.com/testing/
+            - listitem [ref=e1452]:
+              - link "VWO Insights" [ref=e1453] [cursor=pointer]:
+                - /url: https://vwo.com/insights/
+            - listitem [ref=e1454]:
+              - link "VWO Data360" [ref=e1455] [cursor=pointer]:
+                - /url: https://vwo.com/customer-data-platform/
+            - listitem [ref=e1456]:
+              - link "VWO Personalize" [ref=e1457] [cursor=pointer]:
+                - /url: https://vwo.com/personalization/
+            - listitem [ref=e1458]:
+              - link "VWO Plan" [ref=e1459] [cursor=pointer]:
+                - /url: https://vwo.com/plan/
+            - listitem [ref=e1460]:
+              - link "VWO Web Rollouts" [ref=e1461] [cursor=pointer]:
+                - /url: https://vwo.com/deploy/
+        - generic [ref=e1462]:
+          - heading "Compare" [level=3] [ref=e1463]
+          - list [ref=e1464]:
+            - listitem [ref=e1465]:
+              - link "VWO vs. Optimizely" [ref=e1466] [cursor=pointer]:
+                - /url: https://vwo.com/compare/optimizely/
+            - listitem [ref=e1467]:
+              - link "VWO vs. Google Optimize" [ref=e1468] [cursor=pointer]:
+                - /url: https://vwo.com/compare/google-optimize/
+            - listitem [ref=e1469]:
+              - link "Google Optimize vs. Optimizely" [ref=e1470] [cursor=pointer]:
+                - /url: https://vwo.com/compare/google-optimize-vs-optimizely/
+            - listitem [ref=e1471]:
+              - link "Google Optimize 360 vs. Optimizely" [ref=e1472] [cursor=pointer]:
+                - /url: https://vwo.com/compare/google-optimize-360-vs-optimizely/
+            - listitem [ref=e1473]:
+              - link "Adobe Target vs. Google Optimize" [ref=e1474] [cursor=pointer]:
+                - /url: https://vwo.com/compare/adobe-target-vs-google-optimize/
+            - listitem [ref=e1475]:
+              - link "Google Optimize vs. Optimize 360" [ref=e1476] [cursor=pointer]:
+                - /url: https://vwo.com/compare/google-optimize-vs-optimize-360/
+            - listitem [ref=e1477]:
+              - link "Google Optimize vs. Kameleoon" [ref=e1478] [cursor=pointer]:
+                - /url: https://vwo.com/compare/google-optimize-vs-kameleoon/
+            - listitem [ref=e1479]:
+              - link "Optimizely vs. Kameleoon" [ref=e1480] [cursor=pointer]:
+                - /url: https://vwo.com/compare/optimizely-vs-kameleoon/
+            - listitem [ref=e1481]:
+              - link "Kameleoon vs. AB Tasty" [ref=e1482] [cursor=pointer]:
+                - /url: https://vwo.com/compare/kameleoon-vs-ab-tasty/
+            - listitem [ref=e1483]:
+              - link "Kameleoon vs. Optimize 360" [ref=e1484] [cursor=pointer]:
+                - /url: https://vwo.com/compare/kameleoon-vs-optimize-360/
+            - listitem [ref=e1485]:
+              - link "AB Tasty vs. Optimize 360" [ref=e1486] [cursor=pointer]:
+                - /url: https://vwo.com/compare/ab-tasty-vs-optimize-360/
+        - generic [ref=e1487]:
+          - heading "Resources" [level=3] [ref=e1488]
+          - list [ref=e1489]:
+            - listitem [ref=e1490]:
+              - link "Blog" [ref=e1491] [cursor=pointer]:
+                - /url: https://vwo.com/blog/
+            - listitem [ref=e1492]:
+              - link "Product Updates" [ref=e1493] [cursor=pointer]:
+                - /url: https://vwo.com/product-updates/
+            - listitem [ref=e1494]:
+              - link "Success Stories" [ref=e1495] [cursor=pointer]:
+                - /url: https://vwo.com/success-stories/
+            - listitem [ref=e1496]:
+              - link "eBooks" [ref=e1497] [cursor=pointer]:
+                - /url: https://vwo.com/ebooks/
+            - listitem [ref=e1498]:
+              - link "Webinars" [ref=e1499] [cursor=pointer]:
+                - /url: https://vwo.com/webinars/
+            - listitem [ref=e1500]:
+              - link "Events" [ref=e1501] [cursor=pointer]:
+                - /url: https://vwo.com/events/
+            - listitem [ref=e1502]:
+              - link "Glossary" [ref=e1503] [cursor=pointer]:
+                - /url: https://vwo.com/glossary/
+            - listitem [ref=e1504]:
+              - link "Inside VWO" [ref=e1505] [cursor=pointer]:
+                - /url: https://vwo.com/webinars/inside/
+            - listitem [ref=e1506]:
+              - link "Masters of Conversion" [ref=e1507] [cursor=pointer]:
+                - /url: https://vwo.com/webcast/
+            - listitem [ref=e1508]:
+              - link "Popular In-Depth Guides" [ref=e1509] [cursor=pointer]:
+                - /url: https://vwo.com/popular-web-optimization-guides/
+        - generic [ref=e1510]:
+          - generic [ref=e1511]:
+            - heading "Get Help" [level=3] [ref=e1512]
+            - list [ref=e1513]:
+              - listitem [ref=e1514]:
+                - link "Knowledge Base" [ref=e1515] [cursor=pointer]:
+                  - /url: https://help.vwo.com/hc/en-us
+          - heading "Free Tools" [level=3] [ref=e1516]
+          - list [ref=e1517]:
+            - listitem [ref=e1518]:
+              - link "A/B Test Significance Calculator" [ref=e1519] [cursor=pointer]:
+                - /url: https://vwo.com/tools/ab-test-significance-calculator/
+            - listitem [ref=e1520]:
+              - link "A/B Test Sample Size Calculator" [ref=e1521] [cursor=pointer]:
+                - /url: https://vwo.com/tools/ab-test-sample-size-calculator/
+            - listitem [ref=e1522]:
+              - link "A/B Test Duration Calculator" [ref=e1523] [cursor=pointer]:
+                - /url: https://vwo.com/tools/ab-test-duration-calculator/
+            - listitem [ref=e1524]:
+              - link "Web Push ROI Calculator" [ref=e1525] [cursor=pointer]:
+                - /url: https://vwo.com/tools/push-notification-roi-calculator/
+            - listitem [ref=e1526]:
+              - link "Cart Abandonment Calculator" [ref=e1527] [cursor=pointer]:
+                - /url: https://vwo.com/tools/cart-abandonment-calculator/
+            - listitem [ref=e1528]:
+              - link "Feature Experimentation ROI Calculator" [ref=e1529] [cursor=pointer]:
+                - /url: https://vwo.com/tools/feature-experimentation-roi-calculator/
+            - listitem [ref=e1530]:
+              - link "AI-Powered Heatmap Generator" [ref=e1531] [cursor=pointer]:
+                - /url: https://vwo.com/tools/ai-powered-heatmap-generator/
+            - listitem [ref=e1532]:
+              - link "CRO Experimentation Checklist" [ref=e1533] [cursor=pointer]:
+                - /url: https://vwo.com/tools/cro-experimentation-checklist/
+            - listitem [ref=e1534]:
+              - link "Website UX Audit" [ref=e1535] [cursor=pointer]:
+                - /url: https://vwo.com/tools/website-ux-audit/
+        - generic [ref=e1536]:
+          - heading "About Us" [level=3] [ref=e1537]
+          - list [ref=e1538]:
+            - listitem [ref=e1539]:
+              - link "Our Company" [ref=e1540] [cursor=pointer]:
+                - /url: https://vwo.com/about-us/
+            - listitem [ref=e1541]:
+              - link "Careers" [ref=e1542] [cursor=pointer]:
+                - /url: https://wingify.com/careers
+            - listitem [ref=e1543]:
+              - link "Media Kit" [ref=e1544] [cursor=pointer]:
+                - /url: https://vwo.com/media-kit/
+            - listitem [ref=e1545]:
+              - link "VWO Partners" [ref=e1546] [cursor=pointer]:
+                - /url: https://vwo.com/partners/
+            - listitem [ref=e1547]:
+              - link "Affiliate Program" [ref=e1548] [cursor=pointer]:
+                - /url: https://vwo.com/partners/affiliate/
+            - listitem [ref=e1549]:
+              - link "Contact Us" [ref=e1550] [cursor=pointer]:
+                - /url: https://vwo.com/contact-us/
+            - listitem [ref=e1551]:
+              - link "Newsroom" [ref=e1552] [cursor=pointer]:
+                - /url: https://vwo.com/news/
+      - generic [ref=e1553]:
+        - generic [ref=e1554]:
+          - link [ref=e1556] [cursor=pointer]:
+            - /url: https://vwo.com/compliance/gdpr/
+            - img "vwo gdpr ready badge" [ref=e1557]
+          - link [ref=e1559] [cursor=pointer]:
+            - /url: https://vwo.com/compliance/ccpa/
+            - img "VWO CCPA ready badge" [ref=e1560]
+          - link [ref=e1562] [cursor=pointer]:
+            - /url: https://vwo.com/compliance/soc-2-type-ii/
+            - img "SOC 2 Type II Badge" [ref=e1563]
+          - link [ref=e1565] [cursor=pointer]:
+            - /url: https://vwo.com/compliance/international-organization-standardization-certification/
+            - img "VWO ISO IEC 27001 Certification Badge" [ref=e1566]
+          - link [ref=e1568] [cursor=pointer]:
+            - /url: https://vwo.com/compliance/international-organization-standardization-certification-27701/
+            - img "VWO ISO 27701 Certification Badge" [ref=e1569]
+        - heading "Follow us and stay on top of everything CRO" [level=3] [ref=e1571]
+      - generic [ref=e1572]:
+        - generic [ref=e1573]:
+          - text: © 2026 Copyright
+          - link "Wingify" [ref=e1574] [cursor=pointer]:
+            - /url: https://wingify.com
+          - text: . All rights reserved
+          - generic [ref=e1575]: "|"
+          - generic [ref=e1576]:
+            - link "Terms" [ref=e1577] [cursor=pointer]:
+              - /url: https://vwo.com/terms/
+            - text: "|"
+            - link "Security" [ref=e1578] [cursor=pointer]:
+              - /url: https://vwo.com/security/
+            - text: "|"
+            - link "Compliance" [ref=e1579] [cursor=pointer]:
+              - /url: https://vwo.com/compliance/
+            - text: "|"
+            - link "Code of Conduct" [ref=e1580] [cursor=pointer]:
+              - /url: https://vwo.com/conduct/
+            - text: "|"
+            - link "Privacy" [ref=e1581] [cursor=pointer]:
+              - /url: https://vwo.com/privacy-policy/
+            - text: "|"
+            - link "AI Policy" [ref=e1582] [cursor=pointer]:
+              - /url: https://vwo.com/responsible-ai-policy/
+            - text: "|"
+            - link "Imprint" [ref=e1583] [cursor=pointer]:
+              - /url: https://vwo.com/imprint/
+            - text: "|"
+            - link "Opt-out" [ref=e1584] [cursor=pointer]:
+              - /url: https://vwo.com/opt-out/
+            - text: "|"
+            - link "Hey AI, learn about us" [ref=e1585] [cursor=pointer]:
+              - /url: https://vwo.com/llm-info/
+        - link [ref=e1587] [cursor=pointer]:
+          - /url: https://wingify.com
+          - img "Wingify Logo" [ref=e1588]
+  - alert [ref=e1589]:
+    - button "close banner" [ref=e1590] [cursor=pointer]
+    - generic [ref=e1593]:
+      - paragraph [ref=e1594]: We have exciting news to share! VWO and AB Tasty are joining forces.
+      - link "Read More" [ref=e1595] [cursor=pointer]:
+        - /url: https://vwo.com/blog/vwo-and-ab-tasty-join-forces/
+  - dialog "Privacy" [ref=e1597]:
+    - generic [ref=e1599]:
+      - generic [ref=e1600]: We use cookies to ensure you get the best experience on our website. You can control how we use cookies by clicking on Cookie Settings. If you continue to use this site, you consent to our use of cookies.
+      - generic [ref=e1604]:
+        - button "Cookie Settings, Opens the preference center dialog" [ref=e1605] [cursor=pointer]: Cookie Settings
+        - button "Allow Cookies" [ref=e1606] [cursor=pointer]
+    - button "Close" [ref=e1608] [cursor=pointer]

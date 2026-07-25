@@ -1,0 +1,4 @@
+[    1707ms] [ERROR] Access to fetch at 'https://app.wingify.com/login/status' from origin 'https://vwo.com' has been blocked by CORS policy: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. @ https://vwo.com/:0
+[    1708ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://app.wingify.com/login/status:0
+[    2797ms] [LOG] %cWARNING! color: red; background: yellow; font-size: 24px; @ https://vwo.com/:4562
+[    2797ms] [LOG] %cThis section is intended for developers only. Do not enter or paste code that you do not understand. If someone told you to copy and paste something, kindly report this to security@wingify.com. font-size: 18px; @ https://vwo.com/:4563
