@@ -1,5 +1,7 @@
 # Advanced RAG Explorer
 
+https://rag-local-file-explorer-q8q4.vercel.app/
+
 A full-stack **Retrieval-Augmented Generation** system built with Flask, featuring hybrid search, cross-encoder re-ranking, query rewriting, and real-time SSE streaming — no Docker required.
 
 ## Architecture
