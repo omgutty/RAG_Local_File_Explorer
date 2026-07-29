@@ -10,3 +10,5 @@
 - Prefers a consistent debugging/visibility workflow across all MCP servers — wants to see the same VS Code MCP debug view (tool listing and status) for each server, not different debugging approaches per server. Confidence: 0.6
 - Prefers modular repository organization — keeps related content together and extracts unrelated content into its own separate git repository rather than keeping everything in one monolith. Confidence: 0.7
 - Delegates git/GitHub operations (creating repos, removing folders, initializing, pushing) entirely to the assistant — expects the assistant to handle the full end-to-end git workflow execution. Confidence: 0.7
+- Wants to generate social media content (LinkedIn posts) from their technical hands-on learning to publicly share their work and insights — values documenting and broadcasting their learning journey beyond just private project files. Confidence: 0.5
+- Distinguishes between documentation formats based on audience — prefers comprehensive, detailed READMEs for project documentation but concise/abbreviated "short version" summaries for social media sharing. Confidence: 0.5
