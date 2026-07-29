@@ -1,0 +1,10 @@
+# Taste (Continuously Learned by [CommandCode][cmd])
+- Documents their hands-on learning by asking the assistant to read screenshots and synthesize them into structured README files — prefers creating durable documentation artifacts from visual evidence of their work. Confidence: 0.6
+- Prefers in-depth, conceptual explanations when learning new topics — values understanding how things work under the hood, not just surface-level setup. Explicitly asks for "indepth knowledge." Confidence: 0.8
+- After following setup or configuration instructions, asks for confirmation to validate their understanding (e.g., "which means now...?"). Wants explicit verification that their interpretation is correct. Confidence: 0.7
+- Expects the assistant to use the exact tools they configured and requested — calls out mismatches when a different tool is substituted silently (e.g., agent-browser used instead of Playwright MCP). Cares about tooling fidelity and accuracy. Confidence: 0.8
+- Provides visual evidence (screenshots) when reporting issues or unexpected behavior, then asks a targeted diagnostic question. Prefers to show rather than just describe what they're seeing. Confidence: 0.7
+- Independently tests configurations themselves and reports back with specific observations — takes a hands-on, empirical approach to troubleshooting rather than just asking for solutions. Confidence: 0.8
+- Shares exact configuration file content when asking for validation — pastes the raw text/code and asks "is this correct?" rather than describing the setup. Wants the assistant to review and correct their actual config, not just general guidance. Confidence: 0.6
+- Uses the MCP Inspector (`npx @modelcontextprotocol/inspector`) as a debugging tool to test and verify MCP server configurations interactively before registering them as permanent servers. Prefers this hands-on validation workflow. Confidence: 0.7
+- Prefers a consistent debugging/visibility workflow across all MCP servers — wants to see the same VS Code MCP debug view (tool listing and status) for each server, not different debugging approaches per server. Confidence: 0.6
