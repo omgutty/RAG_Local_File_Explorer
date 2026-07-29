@@ -6,7 +6,9 @@
       "Shell(netstat:*)",
       "Shell(findstr:*)",
       "Shell(kill:*)",
-      "Shell(npx @modelcontextprotocol/inspector -e 1.1.3 -p 6280 -- npx -y @atlassian/jira-mcp 2>&1)"
+      "Shell(npx @modelcontextprotocol/inspector -e 1.1.3 -p 6280 -- npx -y @atlassian/jira-mcp 2>&1)",
+      "Shell(gh:*)",
+      "Shell(winget:*)"
     ],
     "deny": [],
     "defaultMode": "default"

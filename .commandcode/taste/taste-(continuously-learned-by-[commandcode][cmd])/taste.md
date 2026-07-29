@@ -8,3 +8,5 @@
 - Shares exact configuration file content when asking for validation — pastes the raw text/code and asks "is this correct?" rather than describing the setup. Wants the assistant to review and correct their actual config, not just general guidance. Confidence: 0.6
 - Uses the MCP Inspector (`npx @modelcontextprotocol/inspector`) as a debugging tool to test and verify MCP server configurations interactively before registering them as permanent servers. Prefers this hands-on validation workflow. Confidence: 0.7
 - Prefers a consistent debugging/visibility workflow across all MCP servers — wants to see the same VS Code MCP debug view (tool listing and status) for each server, not different debugging approaches per server. Confidence: 0.6
+- Prefers modular repository organization — keeps related content together and extracts unrelated content into its own separate git repository rather than keeping everything in one monolith. Confidence: 0.7
+- Delegates git/GitHub operations (creating repos, removing folders, initializing, pushing) entirely to the assistant — expects the assistant to handle the full end-to-end git workflow execution. Confidence: 0.7
